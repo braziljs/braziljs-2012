@@ -7,24 +7,36 @@
 	<meta charset="utf-8" />
 	<title>BrazilJS - Porto Alegre 2012</title>
 	<script>document.getElementsByTagName('head')[0].className+=' js'</script>
+	<link rel="stylesheet" href="styles/base.css" />
 </head>
 <body>
+<div id="wrapper">
+
 	<header id="header">
 		<hgroup>
 			<h1>BrazilJS</h1>
-			<h2>Porto Alegre 2012</h2>
+			<h2>Porto Alegre <b>2012</b></h2>
 		</hgroup>
-		<p>A maior conferência de Javascript do mundo</p>
-		<p>25 de Junho no Teatro do Bourbon Country - Porto Alegre/RS</p>
+		<p class="line">
+			A maior conferência<br /> 
+			de JavaScript<br /> 
+			do universo
+		</p>
+		<p class="where">
+			25 de Junho<br /> 
+			Teatro do Bourbon Country<br /> 
+			Porto Alegre / RS</p>
 	</header>
+
 	<nav id="nav">
 		<ul>
-			<li><a href="#">Inscrições</a></li>
+			<li class="active"><a href="#">Inscrições</a></li>
 			<li><a href="#">Palestrantes</a></li>
 			<li><a href="#">Local</a></li>
 			<li><a href="#">Contato</a></li>
 		</ul>
 	</nav>
+
 	<div id="main">
 		<section id="registration">
 			<h2>Inscrições</h2>
@@ -64,9 +76,16 @@
 				<img src="lugar.jpg" alt="" />
 		</section>
 	</div>
+
+</div>
+
 	<footer id="footer">
-		<p>Copyright Pirocanarede.com 2014</p>
+		footer
 	</footer>
+
+	<div id="poa"></div>
+
 	<script src="scripts/base.js"></script>
+	
 </body>
 </html>

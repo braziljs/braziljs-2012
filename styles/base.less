@@ -1,0 +1,194 @@
+@import "reset";
+@import "mixins";
+
+//# variables
+@pagewidth: 980px;
+@family1: "League Gothic", sans-serif;
+
+@offwhite: #e6fffd;
+@lightgreen: #c5f17f;
+@green:#97df66;
+@dark:#324340;
+
+.striped() {
+    background:url(../images/bg-lines.png);
+}
+
+//# fonts
+@font-face {
+    font-family: 'League Gothic';
+    src: url('League_Gothic-webfont.eot');
+    src: url('League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('League_Gothic-webfont.woff') format('woff'),
+         url('League_Gothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+//# user styles
+html, body { min-height:100%; }
+
+html {
+    height:100%;
+    .striped();
+}
+
+#wrapper {
+    width:@pagewidth - 100px;
+    padding:0 50px;
+    margin:0 auto;
+    color:@dark;
+}
+
+a {
+    text-decoration:none;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family:@family1;
+    font-weight:400;
+    text-transform:uppercase;
+}
+
+#header,
+#nav,
+#main,
+#footer {
+    position:relative;
+    z-index:5;
+}
+
+@headerpad: 35px;
+@headerheight: 590px;
+
+#poa {
+    position:absolute;
+    top:0;
+    right:0;
+    height:@headerheight;
+    width:100%;
+    background:url(../images/porto-alegre.jpg) no-repeat fixed center top;
+    @media only screen and (min-width: 980px) {
+        background-size:100% auto;
+    }
+
+    z-index:-1;
+}
+
+#header {
+    width:100%;
+    padding:@headerpad 0;
+    height:@headerheight - (@headerpad * 2);
+    font-family:@family1;
+    text-align:center;
+    color:@offwhite;
+    text-shadow:0 1px 6px rgba(0,0,0,0.1);
+    h1 {
+        .IR(432px, 120px, url(../images/braziljs-logo.png));
+        margin:0 auto;
+    }
+    h2 {
+        font-size:60px;
+        text-transform:uppercase;
+        font-weight:400;
+        line-height:1.1;
+        b {
+            color:@lightgreen;
+            font-weight:400;
+        }
+    }
+    hgroup {
+        margin-bottom:185px;
+    }
+    p {
+        font-size:42px;
+        line-height:1;
+    }
+    .line, .where {
+        .inline-block();
+        width:330px;
+        vertical-align:top;
+    }
+    .line {
+        text-align:right;
+        padding-right:35px;
+        color:@lightgreen;
+        text-transform:uppercase;
+    }
+    .where {
+        text-align:left;
+    }
+}
+
+@media only screen and (min-width: 1130px) {
+    #poa { height:660px; }
+    #header {
+        height:660px - (@headerpad * 2);
+        hgroup { margin-bottom:240px; }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #poa { height:800px; }
+    #header {
+        height:800px - (@headerpad * 2);
+        hgroup { margin-bottom:440px; }
+    }
+}
+
+#nav {
+    text-align:center;
+    position:relative;
+    top:-22px;
+    li, a {
+        .inline-block();
+    }
+    a {
+        background:#333;
+        height:40px;
+        line-height:43px;
+        letter-spacing:1px;
+        padding:0 25px;
+        margin:0 10px;
+        font-family:@family1;
+        font-size:28px;
+        text-transform:uppercase;
+        color:@green;
+        cursor:pointer;
+    }
+    li.active a,
+    a:hover,
+    a:active {
+        color:@offwhite;
+    }
+}
+
+#main {
+    h2 {
+        font-size:48px;
+        color:@dark;
+        text-shadow:3px 3px 0px @lightgreen;
+    }
+    section {
+        margin-top:50px;
+        padding:20px 0;
+    }
+    #registration {
+        &:before {
+            content:' ';
+            display:block;
+            background:rgba(0,0,0,0.5);
+        }
+    }
+}
+
+#footer {
+    padding:40px 0;
+    margin-top:80px;
+    @from: rgba(50,60,60,0.05);
+    @to: rgba(50,60,60,0.4);
+    .linear-gradient(@from, @to);
+    text-align:center;
+    border-bottom:10px solid #557777;
+}
