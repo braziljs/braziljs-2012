@@ -84,6 +84,7 @@ h1,h2,h3,h4,h5 {
     text-align:center;
     color:@offwhite;
     text-shadow:0 1px 6px rgba(0,0,0,0.1);
+    position:relative;
     h1 {
         .IR(432px, 120px, url(../images/braziljs-logo.png));
         margin:0 auto;
@@ -105,6 +106,13 @@ h1,h2,h3,h4,h5 {
         font-size:42px;
         line-height:1;
     }
+    .text {
+        position:absolute;
+        width:800px;
+        left:50%;
+        bottom:60px;
+        margin-left:-400px;
+    }
     .line, .where {
         .inline-block();
         width:330px;
@@ -112,29 +120,50 @@ h1,h2,h3,h4,h5 {
     }
     .line {
         text-align:right;
-        padding-right:35px;
+        padding-right:17px;
         color:@lightgreen;
         text-transform:uppercase;
     }
     .where {
         text-align:left;
+        padding-left:17px;
     }
 }
 
-@media only screen and (min-width: 1130px) {
-    #poa { height:660px; }
-    #header {
-        height:660px - (@headerpad * 2);
-        hgroup { margin-bottom:240px; }
-    }
+@media only screen and (min-width: 1080px) {
+    @h: 40px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
 }
-
+@media only screen and (min-width: 1140px) {
+    @h: 70px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
+}
+@media only screen and (min-width: 1260px) {
+    @h: 100px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
+}
+@media only screen and (min-width: 1340px) {
+    @h: 140px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
+}
+@media only screen and (min-width: 1460px) {
+    @h: 180px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
+}
 @media only screen and (min-width: 1600px) {
-    #poa { height:800px; }
-    #header {
-        height:800px - (@headerpad * 2);
-        hgroup { margin-bottom:440px; }
-    }
+    @h: 220px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
+}
+@media only screen and (min-width: 1720px) {
+    @h: 300px;
+    #header { height:@headerheight + @h - (@headerpad * 2); }
+    #poa { height:@headerheight + @h; }
 }
 
 #nav {
