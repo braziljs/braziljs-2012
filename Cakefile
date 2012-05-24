@@ -3,7 +3,10 @@ fs = require 'fs'
 
 lastChange = {}
 
-scripts = ['scripts/base.coffee']
+scripts = [
+    'scripts/base.coffee'
+    'scripts/soon.coffee'
+]
 styles = [
     'styles/base.less'
     'styles/soon.less'

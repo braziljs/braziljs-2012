@@ -59,7 +59,23 @@ body {
     color:@offwhite;
     text-shadow:0 1px 6px rgba(0,0,0,0.1);
 }
+
+@-webkit-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-ms-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 .header {
+    position:relative;
+    z-index:50;
     margin-top:5%;
     h1 {
         margin:0 auto;
@@ -74,7 +90,13 @@ body {
             font-weight:400;
         }
     }
-}
+   -webkit-animation-duration: 3s;
+    -webkit-animation-name: fadein;
+       -moz-animation-duration: 3s;
+       -moz-animation-name: fadein;
+            animation-duration: 3s;
+            animation-name: fadein;
+}   
 
 .text {
     position:absolute;
@@ -84,6 +106,13 @@ body {
     text-align:center;
     font-size:42px;
     line-height:1;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: fadein;
+       -moz-animation-duration: 3s;
+       -moz-animation-name: fadein;
+            animation-duration: 3s;
+            animation-name: fadein;
+    z-index:50;
 }
 .line, .where {
     .inline-block();
@@ -133,3 +162,96 @@ body {
         h2 { font-size:60px; }
     }
 }
+
+.porto {
+    position:absolute;
+    left:0;
+    //right:0;
+    width:100%;
+    z-index:10;
+    background-size:auto 100%;
+    background-repeat:repeat-x;
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function:linear;
+    -webkit-transform:translateZ(0);
+       -moz-animation-iteration-count: infinite; 
+       -moz-animation-direction: normal;
+       -moz-animation-timing-function:linear;
+       -moz-transform:translateZ(0);
+            animation-iteration-count: infinite; 
+            animation-direction: normal;
+            animation-timing-function:linear;
+            transform:translateZ(0);
+}
+
+@multiplier: 1.2;
+
+.p0 {
+    background-image:url(../images/sky.jpg);
+    top:0;
+    height:64%;
+    -webkit-animation-duration: 80s * @multiplier;
+}
+.p1 {
+    background-image:url(../images/skyline.png);
+    top:0;
+    height:64%;
+    -webkit-animation-duration: 130s * @multiplier;
+}
+.p2 {
+    background-image:url(../images/porto2.jpg);
+    top:64%;
+    height:8%;
+    -webkit-animation-duration: 90s * @multiplier;
+}
+.p3 {
+    background-image:url(../images/porto3.jpg);
+    top:64% + 7%;
+    height:11%;
+    -webkit-animation-duration: 50s * @multiplier;
+}
+.p4 {
+    background-image:url(../images/porto4.jpg);
+    top:64% + 7% + 10%;
+    height:19%;
+    -webkit-animation-duration: 35s * @multiplier;
+}
+
+/*
+.porto {
+    position:absolute;
+    left:0;
+    right:0;
+    background-size:auto 100%;
+    background-repeat:repeat-x;
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-name: moveleft;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function:linear;
+}
+.p1 {
+    background-image:url(../images/porto1.png);
+    top:0;
+    height:65%;
+    -webkit-animation-duration: 90s;
+}
+.p2 {
+    background-image:url(../images/porto2.png);
+    top:62%;
+    height:9%;
+    -webkit-animation-duration: 65s;
+}
+.p3 {
+    background-image:url(../images/porto3.png);
+    top:64% + 5%;
+    height:15%;
+    -webkit-animation-duration: 40s;
+}
+.p4 {
+    background-image:url(../images/porto4.png);
+    top:64% + 7% + 10%;
+    height:22%;
+    -webkit-animation-duration: 30s;
+}
+*/
