@@ -1,0 +1,135 @@
+@import "reset";
+@import "mixins";
+
+//# variables
+@pagewidth: 980px;
+@family1: "League Gothic", sans-serif;
+
+@offwhite: #e6fffd;
+@lightgreen: #c5f17f;
+@green:#97df66;
+@dark:#324340;
+
+.striped() {
+    background:url(../images/bg-lines.png);
+}
+
+//# fonts
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+//# user styles
+html, body { min-height:100%; }
+
+html {
+    height:100%;
+    background:url(../images/porto-alegre.jpg) no-repeat fixed center top;
+    background-size:cover;
+    min-width:320px;
+}
+
+a {
+    text-decoration:none;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family:@family1;
+    font-weight:400;
+    text-transform:uppercase;
+}
+
+@headerpad: 35px;
+@headerheight: 640px;
+
+body {
+    max-width:980px;
+    margin:0 auto;
+    color:@dark;
+    padding:@headerpad 0;
+    font-family:@family1;
+    text-align:center;
+    color:@offwhite;
+    text-shadow:0 1px 6px rgba(0,0,0,0.1);
+}
+.header {
+    margin-top:5%;
+    h1 {
+        margin:0 auto;
+    }
+    h2 {
+        font-size:60px;
+        text-transform:uppercase;
+        font-weight:400;
+        line-height:1.1;
+        b {
+            color:@lightgreen;
+            font-weight:400;
+        }
+    }
+}
+
+.text {
+    position:absolute;
+    top:70%;
+    width:100%;
+    max-width:980px;
+    text-align:center;
+    font-size:42px;
+    line-height:1;
+}
+.line, .where {
+    .inline-block();
+    width:330px;
+    vertical-align:top;
+}
+.line {
+    text-align:right;
+    padding-right:17px;
+    color:@lightgreen;
+    text-transform:uppercase;
+}
+.where {
+    text-align:left;
+    padding-left:17px;
+}
+
+@media only screen and (max-width: 480px) {
+    .header {
+        img { width:80%; }
+        h2 { font-size:32px; }
+    }
+    .text {
+        font-size:32px;
+    }
+}
+@media only screen and (max-width:700px) {
+    .text {
+        top:65%;
+    }
+    .line, .where {
+        text-align:center;
+        padding:0;
+        margin-bottom:20px;
+        display:block;
+        margin:0 auto 20px;
+        font-size:38px;
+    }
+}
+@media only screen and (max-width:700px) {
+    .line, .where {
+        font-size:28px;
+    }
+}
+@media only screen and (min-width: 980px) {
+    .header {
+        h2 { font-size:60px; }
+    }
+}
