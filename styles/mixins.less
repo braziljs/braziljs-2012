@@ -38,6 +38,14 @@
             box-shadow: @shadow;
 }
 
+.animation(@_) {
+    -webkit-animation:@arguments;
+       -moz-animation:@arguments;
+        -ms-animation:@arguments;
+         -o-animation:@arguments;
+            animation:@arguments;
+}
+
 .transition(@trans) {
     -webkit-transition: @trans;
        -moz-transition: @trans;

@@ -1,13 +1,13 @@
 (function() {
-  var $, cssAnimation, cssPrefix, imageSizes, lastResize, parts, prefix, setupAnimation;
+  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, parts, prefix, resizeTimer, setupAnimation;
 
   $ = function(sel) {
     return Array.prototype.slice.call(document.querySelectorAll(sel));
   };
 
-  parts = $('.porto');
-
-  imageSizes = [[800, 369], [1960, 369], [1960, 42], [1960, 64], [1960, 102]];
+  $$ = function(sel) {
+    return document.querySelector(sel);
+  };
 
   prefix = (function() {
     var div, p, _i, _len, _ref;
@@ -21,37 +21,47 @@
 
   cssPrefix = !prefix ? '' : "-" + (prefix.toLowerCase()) + "-";
 
+  parts = [$$('.p0'), $$('.p1'), $$('.p2'), $$('.p3'), $$('.p4')];
+
+  imageSizes = [[800, 369], [1960, 369], [1960, 42], [1960, 64], [1960, 102]];
+
+  imageSpeed = [1, 1.2, 2, 5, 8];
+
+  baseSpeed = 180;
+
   cssAnimation = null;
 
   (setupAnimation = function() {
+    var rules;
+    if (!prefix) return;
     cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     $('head')[0].appendChild(cssAnimation);
-    return parts.forEach(function(p, i) {
-      var height, imageWidth, rules, styles, width;
+    rules = '';
+    parts.forEach(function(p, i) {
+      var height, imageWidth, styles, width;
       styles = getComputedStyle(p);
       width = parseInt(styles.getPropertyValue('width'), 10);
       height = parseInt(styles.getPropertyValue('height'), 10);
       imageWidth = Math.floor((height / imageSizes[i][1]) * imageSizes[i][0]);
-      rules = "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation-name: slice" + i + ";\n}";
-      if (cssAnimation.styleSheet) {
-        cssAnimation.styleSheet.cssText = rules;
-      } else {
-        cssAnimation.appendChild(document.createTextNode(rules));
-      }
+      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s linear 0 infinite normal;\n}";
     });
+    console.log(rules);
+    if (cssAnimation.styleSheet) {
+      cssAnimation.styleSheet.cssText = rules;
+    } else {
+      cssAnimation.appendChild(document.createTextNode(rules));
+    }
   })();
 
-  lastResize = 0;
+  resizeTimer = 0;
 
   window.onresize = function() {
-    var now;
-    now = +new Date();
-    console.log(now, lastResize, now - lastResize);
-    if ((now - lastResize) < 2000) return;
-    lastResize = now;
-    cssAnimation.parentNode.removeChild(cssAnimation);
-    return setupAnimation();
+    clearTimeout(resizeTimer);
+    return resizeTimer = setTimeout(function() {
+      if (cssAnimation != null) cssAnimation.parentNode.removeChild(cssAnimation);
+      return setupAnimation();
+    }, 1000);
   };
 
 }).call(this);

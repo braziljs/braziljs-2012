@@ -414,6 +414,17 @@ html {
   background: url(../images/porto-alegre.jpg) no-repeat fixed center top;
   background-size: cover;
   min-width: 320px;
+  overflow-x: hidden;
+}
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #324340;
+  padding: 35px 0;
+  font-family: "League Gothic", sans-serif;
+  text-align: center;
+  color: #e6fffd;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
 a {
   text-decoration: none;
@@ -427,15 +438,45 @@ h5 {
   font-weight: 400;
   text-transform: uppercase;
 }
-body {
-  max-width: 980px;
-  margin: 0 auto;
-  color: #324340;
-  padding: 35px 0;
-  font-family: "League Gothic", sans-serif;
-  text-align: center;
-  color: #e6fffd;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+@-webkit-keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @-webkit-keyframes fadein {
   0% {
@@ -461,16 +502,31 @@ body {
     opacity: 1;
   }
 }
+@-o-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .header {
   position: relative;
   z-index: 50;
   margin-top: 5%;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-name: fadein;
-  -moz-animation-duration: 3s;
-  -moz-animation-name: fadein;
-  animation-duration: 3s;
-  animation-name: fadein;
+  -webkit-animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -ms-animation: fadein 3s;
+  -o-animation: fadein 3s;
+  animation: fadein 3s;
 }
 .header h1 {
   margin: 0 auto;
@@ -493,12 +549,11 @@ body {
   text-align: center;
   font-size: 42px;
   line-height: 1;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-name: fadein;
-  -moz-animation-duration: 3s;
-  -moz-animation-name: fadein;
-  animation-duration: 3s;
-  animation-name: fadein;
+  -webkit-animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -ms-animation: fadein 3s;
+  -o-animation: fadein 3s;
+  animation: fadein 3s;
   z-index: 50;
 }
 .line,
@@ -563,83 +618,41 @@ body {
   z-index: 10;
   background-size: auto 100%;
   background-repeat: repeat-x;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction: normal;
-  -webkit-animation-timing-function: linear;
-  -webkit-transform: translatez(0);
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-direction: normal;
-  -moz-animation-timing-function: linear;
-  -moz-transform: translatez(0);
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  transform: translatez(0);
+}
+@-webkit-keyframes slice0 {
+  0% {
+    -webkit-transform: translatex(0);
+  }
+  100% {
+    -webkit-transform: translatex(-719px);
+  }
+}
+.p0 {
+  width: 1921px;
+  -webkit-animation: slice0 30s linear 0 infinite normal;
 }
 .p0 {
   background-image: url(../images/sky.jpg);
   top: 0;
   height: 64%;
-  -webkit-animation-duration: 96s;
 }
 .p1 {
   background-image: url(../images/skyline.png);
   top: 0;
   height: 64%;
-  -webkit-animation-duration: 156s;
 }
 .p2 {
   background-image: url(../images/porto2.jpg);
   top: 64%;
   height: 8%;
-  -webkit-animation-duration: 108s;
 }
 .p3 {
   background-image: url(../images/porto3.jpg);
   top: 71%;
   height: 11%;
-  -webkit-animation-duration: 60s;
 }
 .p4 {
   background-image: url(../images/porto4.jpg);
   top: 81%;
   height: 19%;
-  -webkit-animation-duration: 42s;
 }
-/*
-.porto {
-    position:absolute;
-    left:0;
-    right:0;
-    background-size:auto 100%;
-    background-repeat:repeat-x;
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-name: moveleft;
-    -webkit-animation-direction: normal;
-    -webkit-animation-timing-function:linear;
-}
-.p1 {
-    background-image:url(../images/porto1.png);
-    top:0;
-    height:65%;
-    -webkit-animation-duration: 90s;
-}
-.p2 {
-    background-image:url(../images/porto2.png);
-    top:62%;
-    height:9%;
-    -webkit-animation-duration: 65s;
-}
-.p3 {
-    background-image:url(../images/porto3.png);
-    top:64% + 5%;
-    height:15%;
-    -webkit-animation-duration: 40s;
-}
-.p4 {
-    background-image:url(../images/porto4.png);
-    top:64% + 7% + 10%;
-    height:22%;
-    -webkit-animation-duration: 30s;
-}
-*/
