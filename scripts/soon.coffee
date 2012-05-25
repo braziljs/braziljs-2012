@@ -2,13 +2,6 @@ $ = (sel) -> Array::slice.call document.querySelectorAll sel
 
 parts = $('.porto')
 
-window.requestAnimationFrame ?=
-    window.mozRequestAnimationFrame or
-    window.webkitRequestAnimationFrame or
-    window.msRequestAnimationFrame
-
-p1 = p2 = p3 = p4 = 0
-
 imageSizes = [
     [800, 369]
     [1960, 369]
@@ -16,6 +9,12 @@ imageSizes = [
     [1960, 64]
     [1960, 102]
 ]
+
+prefix = do ->
+    div = document.createElement 'div'
+    return p for p in ['Webkit', 'Moz', 'O', 'ms'] when div.style[p+'Transform']?
+
+cssPrefix = if not prefix then ''  else "-#{prefix.toLowerCase()}-"
 
 cssAnimation = null
 
@@ -31,35 +30,27 @@ do setupAnimation = ->
         height = parseInt(styles.getPropertyValue('height'), 10)
 
         imageWidth = Math.floor (height / imageSizes[i][1]) * imageSizes[i][0]
-        rules = document.createTextNode """
-        @-webkit-keyframes slice#{i} {
-            0%   {
-                -webkit-transform:translateX(0);
-                   -moz-transform:translateX(0);
-                        transform:translateX(0);
+        rules = """
+            @#{cssPrefix}keyframes slice#{i} {
+                0%   { #{cssPrefix}transform:translateX(0); }
+                100% { #{cssPrefix}transform:translateX(-#{imageWidth}px); }
             }
-            100% {
-                -webkit-transform:translateX(-#{imageWidth}px);
-                   -moz-transform:translateX(-#{imageWidth}px);
-                        transform:translateX(-#{imageWidth}px);
+            .p#{i} {
+                width: #{width+imageWidth}px;
+                #{cssPrefix}animation-name: slice#{i};
             }
-        }
         """
-        cssAnimation.appendChild rules
-        p.style.width = "#{width+imageWidth}px"
-        p.style.webkitAnimationName = "slice#{i}"
+        if cssAnimation.styleSheet
+            cssAnimation.styleSheet.cssText = rules
+        else
+            cssAnimation.appendChild document.createTextNode rules
+        return
 
 lastResize = 0
 window.onresize = ->
-    return if +new Date - lastResize < 600
+    now = +new Date()
+    console.log now, lastResize, now-lastResize
+    return if (now - lastResize) < 2000
+    lastResize = now
     cssAnimation.parentNode.removeChild cssAnimation
     setupAnimation()
-
-do ->
-    return
-    parts[0].style.backgroundPositionX = "#{p1 -= .5}px"
-    parts[1].style.backgroundPositionX = "#{p2 -= 1}px"
-    parts[2].style.backgroundPositionX = "#{p3 -= 2}px"
-    parts[3].style.backgroundPositionX = "#{p4 -= 4}px"
-    requestAnimationFrame arguments.callee
-
