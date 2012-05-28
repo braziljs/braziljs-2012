@@ -33,7 +33,7 @@
 
   (setupAnimation = function() {
     var rules;
-    if (!prefix) return;
+    if (!prefix || screen.width < 980) return;
     cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     $('head')[0].appendChild(cssAnimation);
@@ -61,7 +61,7 @@
     return resizeTimer = setTimeout(function() {
       if (cssAnimation != null) cssAnimation.parentNode.removeChild(cssAnimation);
       return setupAnimation();
-    }, 1000);
+    }, 800);
   };
 
 }).call(this);

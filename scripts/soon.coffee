@@ -29,8 +29,7 @@ baseSpeed = 180
 cssAnimation = null
 
 do setupAnimation = ->
-    return if not prefix
-    #return
+    return if not prefix or screen.width < 980
 
     cssAnimation = document.createElement 'style'
     cssAnimation.type = 'text/css'
@@ -67,5 +66,5 @@ window.onresize = ->
     resizeTimer = setTimeout ->
         cssAnimation?.parentNode.removeChild cssAnimation
         setupAnimation()    
-    , 1000
+    , 800
     

@@ -420,7 +420,7 @@ body {
   max-width: 980px;
   margin: 0 auto;
   color: #324340;
-  padding: 35px 0;
+  padding: 35px 0 0;
   font-family: "League Gothic", sans-serif;
   text-align: center;
   color: #e6fffd;
@@ -437,46 +437,6 @@ h5 {
   font-family: "League Gothic", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-}
-@-webkit-keyframes hide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-moz-keyframes hide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-ms-keyframes hide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-o-keyframes hide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes hide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 @-webkit-keyframes fadein {
   0% {
@@ -618,6 +578,12 @@ h5 {
   z-index: 10;
   background-size: auto 100%;
   background-repeat: repeat-x;
+  display: none;
+}
+@media only screen and (min-device-width: 800px) {
+  .porto {
+    display: block;
+  }
 }
 @-webkit-keyframes slice0 {
   0% {
@@ -626,10 +592,6 @@ h5 {
   100% {
     -webkit-transform: translatex(-719px);
   }
-}
-.p0 {
-  width: 1921px;
-  -webkit-animation: slice0 30s linear 0 infinite normal;
 }
 .p0 {
   background-image: url(../images/sky.jpg);
@@ -654,5 +616,5 @@ h5 {
 .p4 {
   background-image: url(../images/porto4.jpg);
   top: 81%;
-  height: 19%;
+  height: 20%;
 }

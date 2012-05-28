@@ -44,7 +44,7 @@ body {
     max-width:980px;
     margin:0 auto;
     color:@dark;
-    padding:@headerpad 0;
+    padding:@headerpad 0 0;
     font-family:@family1;
     text-align:center;
     color:@offwhite;
@@ -59,27 +59,6 @@ h1,h2,h3,h4,h5 {
     font-family:@family1;
     font-weight:400;
     text-transform:uppercase;
-}
-
-@-webkit-keyframes hide {
-    0%   { opacity: 0; }
-    100% { opacity: 0; }
-}
-@-moz-keyframes hide {
-    0%   { opacity: 0; }
-    100% { opacity: 0; }
-}
-@-ms-keyframes hide {
-    0%   { opacity: 0; }
-    100% { opacity: 0; }
-}
-@-o-keyframes hide {
-    0%   { opacity: 0; }
-    100% { opacity: 0; }
-}
-@keyframes hide {
-    0%   { opacity: 0; }
-    100% { opacity: 0; }
 }
 
 @-webkit-keyframes fadein {
@@ -107,7 +86,7 @@ h1,h2,h3,h4,h5 {
     position:relative;
     z-index:50;
     margin-top:5%;
-    .animation(hide 1, fadein 3s ease 5s);
+    .animation(fadein 3s);
     h1 {
         margin:0 auto;
     }
@@ -190,6 +169,10 @@ h1,h2,h3,h4,h5 {
     z-index:10;
     background-size:auto 100%;
     background-repeat:repeat-x;
+    display:none;
+    @media only screen and (min-device-width: 800px){
+        display:block;
+    }
 }
 
 @multiplier: 1.2;
@@ -197,10 +180,6 @@ h1,h2,h3,h4,h5 {
 @-webkit-keyframes slice0 {
     0%   { -webkit-transform:translateX(0); }
     100% { -webkit-transform:translateX(-719px); }
-}
-.p0 {
-    width: 1921px;
-    -webkit-animation: slice0 30s linear 0 infinite normal;
 }
 
 .p0 {
@@ -226,5 +205,5 @@ h1,h2,h3,h4,h5 {
 .p4 {
     background-image:url(../images/porto4.jpg);
     top:64% + 7% + 10%;
-    height:19%;
+    height:20%;
 }
