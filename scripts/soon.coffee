@@ -54,7 +54,7 @@ do setupAnimation = ->
             }
             .p#{i} {
                 width: #{width+imageWidth}px;
-                #{cssPrefix}animation: slice#{i} #{Math.floor baseSpeed / imageSpeed[i]}s ease infinite;
+                #{cssPrefix}animation: slice#{i} #{Math.floor baseSpeed / imageSpeed[i]}s linear infinite;
 
             }
         """

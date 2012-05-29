@@ -50,7 +50,7 @@
       width = parseInt(styles.getPropertyValue('width'), 10);
       height = parseInt(styles.getPropertyValue('height'), 10);
       imageWidth = Math.floor((height / imageSizes[i][1]) * imageSizes[i][0]);
-      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s ease infinite;\n\n}";
+      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s linear infinite;\n\n}";
     });
     if (cssAnimation.styleSheet) {
       cssAnimation.styleSheet.cssText = rules;
