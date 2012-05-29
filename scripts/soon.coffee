@@ -15,16 +15,18 @@ parts = [
     $$('.p4')
 ]
 
+p.style.display = 'block' for p in parts
+
 imageSizes = [
-    [800, 369]
-    [1960, 369]
-    [1960, 42]
-    [1960, 64]
-    [1960, 102]
+    [980, 400]
+    [980, 440]
+    [625, 60]
+    [625, 80]
+    [625, 105]
 ]
 
-imageSpeed = [1,1.2,2,5,8]
-baseSpeed = 180
+imageSpeed = [1, 1.5, 4.5, 5.2, 7]
+baseSpeed = 500
 
 cssAnimation = null
 
@@ -33,7 +35,8 @@ do setupAnimation = ->
 
     cssAnimation = document.createElement 'style'
     cssAnimation.type = 'text/css'
-    $('head')[0].appendChild cssAnimation
+    $$('head').appendChild cssAnimation
+    $$('html').style.backgroundImage = 'none'
 
     rules = ''
 
@@ -50,10 +53,10 @@ do setupAnimation = ->
             }
             .p#{i} {
                 width: #{width+imageWidth}px;
-                #{cssPrefix}animation: slice#{i} #{Math.floor baseSpeed / imageSpeed[i]}s linear 0 infinite normal;
+                #{cssPrefix}animation: slice#{i} #{Math.floor baseSpeed / imageSpeed[i]}s ease infinite;
+
             }
         """
-    console.log rules
     if cssAnimation.styleSheet
         cssAnimation.styleSheet.cssText = rules
     else

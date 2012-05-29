@@ -160,6 +160,9 @@ h1,h2,h3,h4,h5 {
     .header {
         h2 { font-size:60px; }
     }
+    html, body {
+        overflow:hidden;
+    }
 }
 
 .porto {
@@ -170,9 +173,6 @@ h1,h2,h3,h4,h5 {
     background-size:auto 100%;
     background-repeat:repeat-x;
     display:none;
-    @media only screen and (min-device-width: 800px){
-        display:block;
-    }
 }
 
 @multiplier: 1.2;
@@ -185,25 +185,30 @@ h1,h2,h3,h4,h5 {
 .p0 {
     background-image:url(../images/sky.jpg);
     top:0;
-    height:64%;
+    height:62%;
+    z-index:1;
 }
 .p1 {
     background-image:url(../images/skyline.png);
     top:0;
-    height:64%;
+    height:66%;
+    z-index:6;
 }
 .p2 {
-    background-image:url(../images/porto2.jpg);
-    top:64%;
-    height:8%;
+    background-image:url(../images/water1.jpg);
+    top:55%;
+    height:10%;
+    z-index:4;
 }
 .p3 {
-    background-image:url(../images/porto3.jpg);
-    top:64% + 7%;
-    height:11%;
+    background-image:url(../images/water2.jpg);
+    top:63%;
+    height:16%;
+    z-index:3;
 }
 .p4 {
-    background-image:url(../images/porto4.jpg);
-    top:64% + 7% + 10%;
-    height:20%;
+    background-image:url(../images/water.jpg);
+    top:78%;
+    height:23%;
+    z-index:2;
 }

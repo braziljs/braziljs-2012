@@ -1,5 +1,5 @@
 (function() {
-  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, parts, prefix, resizeTimer, setupAnimation;
+  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resizeTimer, setupAnimation, _i, _len;
 
   $ = function(sel) {
     return Array.prototype.slice.call(document.querySelectorAll(sel));
@@ -23,11 +23,16 @@
 
   parts = [$$('.p0'), $$('.p1'), $$('.p2'), $$('.p3'), $$('.p4')];
 
-  imageSizes = [[800, 369], [1960, 369], [1960, 42], [1960, 64], [1960, 102]];
+  for (_i = 0, _len = parts.length; _i < _len; _i++) {
+    p = parts[_i];
+    p.style.display = 'block';
+  }
 
-  imageSpeed = [1, 1.2, 2, 5, 8];
+  imageSizes = [[980, 400], [980, 440], [625, 60], [625, 80], [625, 105]];
 
-  baseSpeed = 180;
+  imageSpeed = [1, 1.5, 4.5, 5.2, 7];
+
+  baseSpeed = 500;
 
   cssAnimation = null;
 
@@ -36,7 +41,8 @@
     if (!prefix || screen.width < 980) return;
     cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
-    $('head')[0].appendChild(cssAnimation);
+    $$('head').appendChild(cssAnimation);
+    $$('html').style.backgroundImage = 'none';
     rules = '';
     parts.forEach(function(p, i) {
       var height, imageWidth, styles, width;
@@ -44,9 +50,8 @@
       width = parseInt(styles.getPropertyValue('width'), 10);
       height = parseInt(styles.getPropertyValue('height'), 10);
       imageWidth = Math.floor((height / imageSizes[i][1]) * imageSizes[i][0]);
-      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s linear 0 infinite normal;\n}";
+      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s ease infinite;\n\n}";
     });
-    console.log(rules);
     if (cssAnimation.styleSheet) {
       cssAnimation.styleSheet.cssText = rules;
     } else {
