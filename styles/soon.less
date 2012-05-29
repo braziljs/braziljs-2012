@@ -100,11 +100,11 @@ h1,h2,h3,h4,h5 {
             font-weight:400;
         }
     }
-}   
+}
 
 .text {
     position:absolute;
-    top:70%;
+    top:65%;
     width:100%;
     max-width:980px;
     text-align:center;
@@ -129,6 +129,16 @@ h1,h2,h3,h4,h5 {
     padding-left:17px;
 }
 
+.share {
+    clear:both;
+    margin:20px auto 0;
+    z-index:50;
+    text-align:center;
+    iframe {
+        display:inline-block;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .header {
         img { width:80%; }
@@ -140,7 +150,7 @@ h1,h2,h3,h4,h5 {
 }
 @media only screen and (max-width:700px) {
     .text {
-        top:65%;
+        top:62%;
     }
     .line, .where {
         text-align:center;

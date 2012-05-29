@@ -42,7 +42,7 @@
     cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     $$('head').appendChild(cssAnimation);
-    $$('html').style.backgroundImage = 'none';
+    $$('html').style.background = '#324544';
     rules = '';
     parts.forEach(function(p, i) {
       var height, imageWidth, styles, width;
@@ -66,7 +66,7 @@
     return resizeTimer = setTimeout(function() {
       if (cssAnimation != null) cssAnimation.parentNode.removeChild(cssAnimation);
       return setupAnimation();
-    }, 800);
+    }, 300);
   };
 
 }).call(this);

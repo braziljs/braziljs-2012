@@ -503,7 +503,7 @@ h5 {
 }
 .text {
   position: absolute;
-  top: 70%;
+  top: 65%;
   width: 100%;
   max-width: 980px;
   text-align: center;
@@ -535,6 +535,15 @@ h5 {
   text-align: left;
   padding-left: 17px;
 }
+.share {
+  clear: both;
+  margin: 20px auto 0;
+  z-index: 50;
+  text-align: center;
+}
+.share iframe {
+  display: inline-block;
+}
 @media only screen and (max-width: 480px) {
   .header img {
     width: 80%;
@@ -548,7 +557,7 @@ h5 {
 }
 @media only screen and (max-width: 700px) {
   .text {
-    top: 65%;
+    top: 62%;
   }
   .line,
   .where {

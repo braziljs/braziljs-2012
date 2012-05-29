@@ -36,7 +36,8 @@ do setupAnimation = ->
     cssAnimation = document.createElement 'style'
     cssAnimation.type = 'text/css'
     $$('head').appendChild cssAnimation
-    $$('html').style.backgroundImage = 'none'
+    $$('html').style.background = '#324544'
+    
 
     rules = ''
 
@@ -68,6 +69,6 @@ window.onresize = ->
     clearTimeout resizeTimer
     resizeTimer = setTimeout ->
         cssAnimation?.parentNode.removeChild cssAnimation
-        setupAnimation()    
-    , 800
+        setupAnimation()
+    , 300
     
