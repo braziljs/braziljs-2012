@@ -38,7 +38,7 @@
 
   (setupAnimation = function() {
     var rules;
-    if (!prefix || screen.width < 980) return;
+    if (!prefix) return;
     cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     $$('head').appendChild(cssAnimation);

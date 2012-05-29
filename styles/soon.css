@@ -414,7 +414,6 @@ html {
   background: url(../images/porto-alegre.jpg) no-repeat fixed center top;
   background-size: cover;
   min-width: 320px;
-  overflow-x: hidden;
 }
 body {
   max-width: 980px;
@@ -551,8 +550,9 @@ h5 {
   .header h2 {
     font-size: 32px;
   }
-  .text {
-    font-size: 32px;
+  .line,
+  .where {
+    font-size: 24px;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -566,13 +566,7 @@ h5 {
     margin-bottom: 20px;
     display: block;
     margin: 0 auto 20px;
-    font-size: 38px;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .line,
-  .where {
-    font-size: 28px;
+    font-size: 36px;
   }
 }
 @media only screen and (min-width: 980px) {
@@ -581,8 +575,76 @@ h5 {
   }
   html,
   body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
+}
+@media only screen and (max-device-width: 480px) {
+  body {
+    padding-top: 20px;
+  }
+  .header {
+    margin-top: 0;
+  }
+  .header img {
+    width: 60%;
+  }
+  .header h2 {
+    font-size: 24px;
+  }
+  .text {
+    top: 60%;
+  }
+  .line,
+  .where {
+    font-size: 20px;
+    display: inline-block;
+    margin: 0;
+    width: auto;
+  }
+  .line {
+    text-align: right;
+    padding-left: 10px;
+  }
+  .where {
+    text-align: left;
+    padding-right: 10px;
+  }
+  .share {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-device-width: 480px) {
+  body {
+    padding-top: 10px;
+  }
+  .header {
+    margin-top: 0;
+  }
+  .header img {
+    width: 40%;
+  }
+  .header h2 {
+    font-size: 20px;
+  }
+  .text {
+    top: 58%;
+  }
+  .line,
+  .where {
+    font-size: 18px;
+  }
+  .share {
+    margin-top: 0;
+  }
+}
+.bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  overflow: hidden;
 }
 .porto {
   position: absolute;
@@ -592,14 +654,6 @@ h5 {
   background-size: auto 100%;
   background-repeat: repeat-x;
   display: none;
-}
-@-webkit-keyframes slice0 {
-  0% {
-    -webkit-transform: translatex(0);
-  }
-  100% {
-    -webkit-transform: translatex(-719px);
-  }
 }
 .p0 {
   background-image: url(../images/sky.jpg);

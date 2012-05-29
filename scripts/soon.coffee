@@ -31,13 +31,12 @@ baseSpeed = 800
 cssAnimation = null
 
 do setupAnimation = ->
-    return if not prefix or screen.width < 980
+    return if not prefix
 
     cssAnimation = document.createElement 'style'
     cssAnimation.type = 'text/css'
     $$('head').appendChild cssAnimation
     $$('html').style.background = '#324544'
-    
 
     rules = ''
 
