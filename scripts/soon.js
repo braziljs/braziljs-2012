@@ -30,9 +30,9 @@
 
   imageSizes = [[980, 400], [980, 440], [625, 60], [625, 80], [625, 105]];
 
-  imageSpeed = [1, 1.5, 4.5, 5.2, 7];
+  imageSpeed = [1, 3, 6, 9, 13];
 
-  baseSpeed = 500;
+  baseSpeed = 800;
 
   cssAnimation = null;
 
