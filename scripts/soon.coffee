@@ -26,7 +26,7 @@ imageSizes = [
 ]
 
 imageSpeed = [1, 3, 6, 9, 13]
-baseSpeed = 800
+baseSpeed = 600
 
 cssAnimation = null
 
@@ -63,11 +63,21 @@ do setupAnimation = ->
         cssAnimation.appendChild document.createTextNode rules
     return
 
+resetAnimation = ->
+    cssAnimation?.parentNode.removeChild cssAnimation
+    setupAnimation()
+
 resizeTimer = 0
 window.onresize = ->
     clearTimeout resizeTimer
-    resizeTimer = setTimeout ->
-        cssAnimation?.parentNode.removeChild cssAnimation
-        setupAnimation()
-    , 300
-    
+    resizeTimer = setTimeout resetAnimation, 300
+
+document.body.addEventListener 'keydown', (e) ->
+    e.which ?= e.keycode
+    previousSpeed = baseSpeed
+    if e.which is 37 # left arrow
+        baseSpeed = Math.min 2000, baseSpeed *= 2
+    else if e.which is 39 # right arrow
+        baseSpeed = Math.max 20, baseSpeed *= 0.5
+    resetAnimation() if baseSpeed isnt previousSpeed
+, false

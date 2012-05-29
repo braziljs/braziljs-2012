@@ -1,5 +1,5 @@
 (function() {
-  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resizeTimer, setupAnimation, _i, _len;
+  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resetAnimation, resizeTimer, setupAnimation, _i, _len;
 
   $ = function(sel) {
     return Array.prototype.slice.call(document.querySelectorAll(sel));
@@ -32,7 +32,7 @@
 
   imageSpeed = [1, 3, 6, 9, 13];
 
-  baseSpeed = 800;
+  baseSpeed = 600;
 
   cssAnimation = null;
 
@@ -59,14 +59,28 @@
     }
   })();
 
+  resetAnimation = function() {
+    if (cssAnimation != null) cssAnimation.parentNode.removeChild(cssAnimation);
+    return setupAnimation();
+  };
+
   resizeTimer = 0;
 
   window.onresize = function() {
     clearTimeout(resizeTimer);
-    return resizeTimer = setTimeout(function() {
-      if (cssAnimation != null) cssAnimation.parentNode.removeChild(cssAnimation);
-      return setupAnimation();
-    }, 300);
+    return resizeTimer = setTimeout(resetAnimation, 300);
   };
+
+  document.body.addEventListener('keydown', function(e) {
+    var previousSpeed;
+    if (e.which == null) e.which = e.keycode;
+    previousSpeed = baseSpeed;
+    if (e.which === 37) {
+      baseSpeed = Math.min(2000, baseSpeed *= 2);
+    } else if (e.which === 39) {
+      baseSpeed = Math.max(20, baseSpeed *= 0.5);
+    }
+    if (baseSpeed !== previousSpeed) return resetAnimation();
+  }, false);
 
 }).call(this);

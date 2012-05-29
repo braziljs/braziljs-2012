@@ -663,6 +663,7 @@ h5 {
 }
 .p1 {
   background-image: url(../images/skyline.png);
+  background-position: center center;
   top: 0;
   height: 66%;
   z-index: 6;
