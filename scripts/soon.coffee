@@ -87,9 +87,17 @@ document.body.addEventListener 'keydown', (e) ->
     
 , false
 
-window.getUserLanguage = (obj) ->
-    br = true
-    if obj.country isnt 'Brazil'
-        br = false
-    console?.log? br
+window.getUserLanguage = (data) ->
+    if data.address.country isnt 'Brazil'
+        $$('.line').innerHTML = """
+            The greatest<br/>
+            javascript conference<br/>
+            in the universe
+        """
+        $$('.where').innerHTML = """
+            August 30th and 31st
+            Bourbon Country Theater
+            Porto Alegre, RS, Brazil
+        """
+        #history.pushState null, document.title, "en"
     

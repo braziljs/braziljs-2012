@@ -91,11 +91,11 @@
     return _results;
   }, false);
 
-  window.getUserLanguage = function(obj) {
-    var br;
-    br = true;
-    if (obj.country !== 'Brazil') br = false;
-    return typeof console !== "undefined" && console !== null ? typeof console.log === "function" ? console.log(br) : void 0 : void 0;
+  window.getUserLanguage = function(data) {
+    if (data.address.country !== 'Brazil') {
+      $$('.line').innerHTML = "The greatest<br/>\njavascript conference<br/>\nin the universe";
+      return $$('.where').innerHTML = "August 30th and 31st\nBourbon Country Theater\nPorto Alegre, RS, Brazil";
+    }
   };
 
 }).call(this);
