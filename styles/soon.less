@@ -45,11 +45,11 @@ body {
     max-width:980px;
     margin:0 auto;
     color:@dark;
-    padding:@headerpad 0 0;
     font-family:@family1;
     text-align:center;
     color:@offwhite;
     text-shadow:0 1px 6px rgba(0,0,0,0.1);
+
 }
 
 a {
@@ -86,7 +86,7 @@ h1,h2,h3,h4,h5 {
 .header {
     position:relative;
     z-index:50;
-    margin-top:5%;
+    margin-top:6%;
     .animation(fadein 3s);
     h1 {
         margin:0 auto;
@@ -173,11 +173,7 @@ h1,h2,h3,h4,h5 {
     }
 }
 @media only screen and (max-device-width:480px) {
-    body {
-        padding-top:20px;
-    }
     .header {
-        margin-top:0;
         img { width:60%; }
         h2 { font-size:24px; }
     }
@@ -205,11 +201,7 @@ h1,h2,h3,h4,h5 {
 // landscape
 
 @media only screen and (min-width:321px) and (max-device-width:480px) {
-    body {
-        padding-top:10px;
-    }
     .header {
-        margin-top:0;
         img { width:40%; }
         h2 { font-size:20px; }
     }

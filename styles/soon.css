@@ -419,7 +419,6 @@ body {
   max-width: 980px;
   margin: 0 auto;
   color: #324340;
-  padding: 35px 0 0;
   font-family: "League Gothic", sans-serif;
   text-align: center;
   color: #e6fffd;
@@ -480,7 +479,7 @@ h5 {
 .header {
   position: relative;
   z-index: 50;
-  margin-top: 5%;
+  margin-top: 6%;
   -webkit-animation: fadein 3s;
   -moz-animation: fadein 3s;
   -ms-animation: fadein 3s;
@@ -581,12 +580,6 @@ h5 {
   }
 }
 @media only screen and (max-device-width: 480px) {
-  body {
-    padding-top: 20px;
-  }
-  .header {
-    margin-top: 0;
-  }
   .header img {
     width: 60%;
   }
@@ -616,12 +609,6 @@ h5 {
   }
 }
 @media only screen and (min-width: 321px) and (max-device-width: 480px) {
-  body {
-    padding-top: 10px;
-  }
-  .header {
-    margin-top: 0;
-  }
   .header img {
     width: 40%;
   }
