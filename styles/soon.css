@@ -539,8 +539,10 @@ h5 {
   margin: 20px auto 0;
   z-index: 50;
   text-align: center;
+  padding-left: 32px;
 }
-.share iframe {
+.share li {
+  width: 114px;
   display: inline-block;
 }
 @media only screen and (max-width: 480px) {
