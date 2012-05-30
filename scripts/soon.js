@@ -1,5 +1,5 @@
 (function() {
-  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resetAnimation, resizeTimer, setupAnimation, speed, _i, _len;
+  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, req, resetAnimation, resizeTimer, setupAnimation, speed, _i, _len;
 
   $ = function(sel) {
     return Array.prototype.slice.call(document.querySelectorAll(sel));
@@ -90,5 +90,18 @@
     }
     return _results;
   }, false);
+
+  if (window.XMLHttpRequest != null) {
+    req = new XMLHttpRequest;
+    req.open('GET', 'http://api.wipmania.com/', true);
+    req.onreadystatechange = function(e) {
+      if (req.readyState === 4 && req.status === 200) {
+        if (/BR/i.test(req.responseText)) {
+          return typeof console !== "undefined" && console !== null ? typeof console.log === "function" ? console.log(responseText) : void 0 : void 0;
+        }
+      }
+    };
+    req.send();
+  }
 
 }).call(this);

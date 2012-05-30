@@ -86,3 +86,12 @@ document.body.addEventListener 'keydown', (e) ->
         p.style["#{prefix}AnimationDuration"] = "#{(6000 / speed / imageSpeed[i]).toFixed(2)}s"
     
 , false
+
+if window.XMLHttpRequest?
+    req = new XMLHttpRequest
+    req.open 'GET', 'http://api.wipmania.com/', true
+    req.onreadystatechange = (e) ->
+        if req.readyState is 4 and req.status is 200
+            if /BR/i.test req.responseText
+                console?.log? responseText
+    req.send()
