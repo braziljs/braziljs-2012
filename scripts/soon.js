@@ -1,5 +1,5 @@
 (function() {
-  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resetAnimation, resizeTimer, setupAnimation, _i, _len;
+  var $, $$, baseSpeed, cssAnimation, cssPrefix, imageSizes, imageSpeed, p, parts, prefix, resetAnimation, resizeTimer, setupAnimation, speed, _i, _len;
 
   $ = function(sel) {
     return Array.prototype.slice.call(document.querySelectorAll(sel));
@@ -12,7 +12,7 @@
   prefix = (function() {
     var div, p, _i, _len, _ref;
     div = document.createElement('div');
-    _ref = ['Webkit', 'Moz', 'O', 'ms'];
+    _ref = ['webkit', 'Moz', 'O', 'ms'];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       p = _ref[_i];
       if (div.style[p + 'Transform'] != null) return p;
@@ -30,7 +30,7 @@
 
   imageSizes = [[980, 400], [980, 440], [625, 60], [625, 80], [625, 105]];
 
-  imageSpeed = [1, 3, 6, 9, 13];
+  imageSpeed = [1, 3, 6, 8.5, 13];
 
   baseSpeed = 600;
 
@@ -47,10 +47,10 @@
     parts.forEach(function(p, i) {
       var height, imageWidth, styles, width;
       styles = getComputedStyle(p);
-      width = parseInt(styles.getPropertyValue('width'), 10);
-      height = parseInt(styles.getPropertyValue('height'), 10);
+      width = parseInt(styles['width'], 10);
+      height = parseInt(styles['height'], 10);
       imageWidth = Math.floor((height / imageSizes[i][1]) * imageSizes[i][0]);
-      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s linear infinite;\n\n}";
+      return rules += "@" + cssPrefix + "keyframes slice" + i + " {\n    0%   { " + cssPrefix + "transform:translateX(0); }\n    100% { " + cssPrefix + "transform:translateX(-" + imageWidth + "px); }\n}\n.p" + i + " {\n    width: " + (width + imageWidth) + "px;\n    " + cssPrefix + "animation: slice" + i + " " + (Math.floor(baseSpeed / imageSpeed[i])) + "s linear infinite;\n}";
     });
     if (cssAnimation.styleSheet) {
       cssAnimation.styleSheet.cssText = rules;
@@ -71,16 +71,24 @@
     return resizeTimer = setTimeout(resetAnimation, 300);
   };
 
+  speed = 10;
+
   document.body.addEventListener('keydown', function(e) {
-    var previousSpeed;
+    var i, p, _len2, _results;
     if (e.which == null) e.which = e.keycode;
-    previousSpeed = baseSpeed;
     if (e.which === 37) {
-      baseSpeed = Math.min(2000, baseSpeed *= 2);
+      speed = Math.max(speed - 9, 0);
     } else if (e.which === 39) {
-      baseSpeed = Math.max(20, baseSpeed *= 0.5);
+      speed = Math.min(speed + 10, 1000);
+    } else {
+      return;
     }
-    if (baseSpeed !== previousSpeed) return resetAnimation();
+    _results = [];
+    for (i = 0, _len2 = parts.length; i < _len2; i++) {
+      p = parts[i];
+      _results.push(p.style["" + prefix + "AnimationDuration"] = "" + ((6000 / speed / imageSpeed[i]).toFixed(2)) + "s");
+    }
+    return _results;
   }, false);
 
 }).call(this);

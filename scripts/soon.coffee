@@ -3,7 +3,7 @@ $$ = (sel) -> document.querySelector sel
 
 prefix = do ->
     div = document.createElement 'div'
-    return p for p in ['Webkit', 'Moz', 'O', 'ms'] when div.style[p+'Transform']?
+    return p for p in ['webkit', 'Moz', 'O', 'ms'] when div.style[p+'Transform']?
 
 cssPrefix = if not prefix then ''  else "-#{prefix.toLowerCase()}-"
 
@@ -25,7 +25,7 @@ imageSizes = [
     [625, 105]
 ]
 
-imageSpeed = [1, 3, 6, 9, 13]
+imageSpeed = [1, 3, 6, 8.5, 13]
 baseSpeed = 600
 
 cssAnimation = null
@@ -42,8 +42,8 @@ do setupAnimation = ->
 
     parts.forEach (p, i) ->
         styles = getComputedStyle(p)
-        width  = parseInt(styles.getPropertyValue('width'), 10)
-        height = parseInt(styles.getPropertyValue('height'), 10)
+        width  = parseInt(styles['width'], 10)
+        height = parseInt(styles['height'], 10)
 
         imageWidth = Math.floor (height / imageSizes[i][1]) * imageSizes[i][0]
         rules += """
@@ -54,7 +54,6 @@ do setupAnimation = ->
             .p#{i} {
                 width: #{width+imageWidth}px;
                 #{cssPrefix}animation: slice#{i} #{Math.floor baseSpeed / imageSpeed[i]}s linear infinite;
-
             }
         """
     if cssAnimation.styleSheet
@@ -72,12 +71,18 @@ window.onresize = ->
     clearTimeout resizeTimer
     resizeTimer = setTimeout resetAnimation, 300
 
+speed = 10
 document.body.addEventListener 'keydown', (e) ->
     e.which ?= e.keycode
-    previousSpeed = baseSpeed
+
     if e.which is 37 # left arrow
-        baseSpeed = Math.min 2000, baseSpeed *= 2
+        speed = Math.max speed-9, 0
     else if e.which is 39 # right arrow
-        baseSpeed = Math.max 20, baseSpeed *= 0.5
-    resetAnimation() if baseSpeed isnt previousSpeed
+        speed = Math.min speed+10, 1000
+    else
+        return
+
+    for p, i in parts
+        p.style["#{prefix}AnimationDuration"] = "#{(6000 / speed / imageSpeed[i]).toFixed(2)}s"
+    
 , false
