@@ -398,6 +398,35 @@ td {
     page-break-after: avoid;
   }
 }
+.button {
+  background: #aad142;
+  font: 400 28px/1 "League Gothic", sans-serif;
+  color: #fff;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: -moz-inline-stack;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 0 30px;
+  height: 42px;
+  line-height: 42px;
+  border: 4px solid #97be2e;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 -4px 20px rgba(0, 20, 0, 0.1), 0px 3px 8px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -4px 20px rgba(0, 20, 0, 0.1), 0px 3px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -4px 20px rgba(0, 20, 0, 0.1), 0px 3px 8px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+}
+.button:hover {
+  color: #fff;
+  background: #b1d552;
+}
 @font-face {
   font-family: 'League Gothic';
   src: url('../fonts/League_Gothic-webfont.eot');
@@ -421,6 +450,7 @@ html {
 }
 a {
   text-decoration: none;
+  color: #007acc;
 }
 h1,
 h2,
@@ -602,19 +632,129 @@ h5 {
 #nav a:active {
   color: #e6fffd;
 }
-#main h2 {
+.main h2 {
   font-size: 48px;
   color: #324340;
   text-shadow: 3px 3px 0px #c5f17f;
+  margin-bottom: 20px;
 }
-#main section {
+.main section {
   margin-top: 50px;
   padding: 20px 0;
 }
-#main #registration:before {
+.main .block {
+  display: inline-block;
+  vertical-align: top;
+  _float: left;
+  width: 436px;
+}
+.registration:before {
   content: ' ';
   display: block;
   background: rgba(0, 0, 0, 0.5);
+}
+.registration .prices {
+  font: 36px/1.2 "League Gothic", sans-serif;
+  color: #3d524e;
+}
+.registration .prices strong {
+  font-weight: 400;
+}
+.speakers ul {
+  margin: 40px 0;
+}
+.speakers li {
+  display: inline-block;
+  vertical-align: top;
+  _float: left;
+  position: relative;
+  min-height: 120px;
+  padding: 20px 20px 20px 140px;
+  width: 270px;
+}
+.speakers .speaker {
+  font-size: 36px;
+  line-height: 1;
+}
+.speakers .company {
+  font-size: 24px;
+  color: #aad142;
+  line-height: 1;
+}
+.speakers .photo {
+  float: left;
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.speakers .photo img,
+.speakers .photo canvas {
+  position: absolute;
+  top: 0;
+}
+.speakers .photo .active {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out;
+  -moz-transition: opacity 0.6s ease-out;
+  -o-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+  z-index: 3;
+}
+.speakers .photo:hover img {
+  top: -120px;
+}
+.speakers .photo:hover .active {
+  opacity: 1;
+}
+.speakers .more {
+  display: block;
+  background: #0099ff;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 10px;
+  padding: 0;
+  margin: 5px 0;
+}
+.speakers .more:hover {
+  background: #1aa3ff;
+}
+.speakers article:active img {
+  top: -120px;
+}
+.speakers article:active .active {
+  opacity: 1;
+}
+.js .speakers p {
+  position: absolute;
+  top: 100px;
+  left: 160px;
+  width: 280px;
+  visibility: hidden;
+  z-index: -1;
+  z-index: 10;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 15px;
+  line-height: 1.2;
+}
+.js .speakers p[id] {
+  visibility: visible;
+  position: static;
+  z-index: 10;
+  height: 0;
+  overflow: hidden;
 }
 #footer {
   padding: 40px 0;
@@ -625,7 +765,8 @@ h5 {
   background-image: -moz-linear-gradient(top, rgba(50, 60, 60, 0.05), rgba(50, 60, 60, 0.4));
   background-image: -ms-linear-gradient(top, rgba(50, 60, 60, 0.05), rgba(50, 60, 60, 0.4));
   background-image: -o-linear-gradient(top, rgba(50, 60, 60, 0.05), rgba(50, 60, 60, 0.4));
-  background-image: linear-gradient(to bottom, rgba(50, 60, 60, 0.05), rgba(50, 60, 60, 0.4));
+  background-image: linear-gradient(top, rgba(50, 60, 60, 0.05), rgba(50, 60, 60, 0.4));
+  background-repeat: no-repeat;
   text-align: center;
   border-bottom: 10px solid #557777;
 }

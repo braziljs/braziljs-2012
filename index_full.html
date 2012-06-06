@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>BrazilJS - Porto Alegre 2012</title>
-	<script>document.getElementsByTagName('head')[0].className+=' js'</script>
+	<script>document.getElementsByTagName('html')[0].className+=' js'</script>
 	<link rel="stylesheet" href="styles/base.css" />
 </head>
 <body>
@@ -33,45 +33,90 @@
 
 	<nav id="nav">
 		<ul>
-			<li class="active"><a href="#">Inscrições</a></li>
-			<li><a href="#">Palestrantes</a></li>
-			<li><a href="#">Local</a></li>
-			<li><a href="#">Contato</a></li>
+			<li class="active"><a href="#register">Inscrições</a></li>
+			<li><a href="#speakers">Palestrantes</a></li>
+			<li><a href="#support">Apoio</a></li>
+			<li><a href="#location">Local</a></li>
 		</ul>
 	</nav>
 
-	<div id="main">
-		<section id="registration">
+	<div class="main">
+		<section class="registration" id="register">
 			<h2>Inscrições</h2>
-			<p>Inscreva-se agora</p>
-			<p>R$ 100,00</p>
-			<button id="register">Inscreva-se</button>
+			<div class="block">
+				<p>BrazilJS é uma conferência de Javascript...</p>
+			</div>
+			<div class="block tickets">
+				<ul class="prices">
+					<li><strong>R$ 500,00 - até 25/06</strong></li>
+					<li><strong>R$ 800,00 - até 10/07</strong></li>
+				</ul>
+				<a class="button" id="register" href="#">Inscreva-se</a>
+			</div>
 		</section>
-		<section id="speakers">
+		<section class="speakers" id="speakers">
 			<h2>Palestrantes</h2>
 			<ul>
-				<li>
-					<img src="headshot.jpg" alt="" />
-					Richard Worth (jQueryUI/Bocoup)
-					<h3><span class="speaker">Richard Worth</span> - <span class="title">jQueryUI/Bocoup</span></h3>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Richard Worth</h3>
+						<h4 class="company">jQueryUI/Bocoup</h2>
+					</hgroup>
 					<p>Richard D. Worth é diretor executivo da jQuery Foundation e líder do projeto jQuery UI. Ele mora em Washington, D.C. e trabalha na Bocoup, treinando desenvolvedores em JavaScript, jQuery, and jQuery UI.</p>
-				</li><li>
-					<img src="headshot.jpg" alt="" />
-					<h3><span class="speaker">Jacob Thornton</span> - <span class="title">Twitter</span></h3>
+					<span class="photo"><img src="images/speakers/richard-worth.jpg" /></span>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Jacob Thornton</h3>
+						<h4 class="company">Twitter</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/jacob-thornton.jpg" alt="" /></span>
 					<p>Jacob é engenheiro no Twitter e co-author de vários projetos interessantes e conhecidos na comunidade JavaScript, entre eles: Bootstrap, Ender, Hogan.js.</p>
-				</li><li>
-					<img src="headshot.jpg" alt="" />
-					<h3><span class="speaker">Michal Budzynski</span> - <span class="title">onGameStart/AntarticJS</span></h3>
-					<p>Michal is an Open Web Alchemist from Warsaw, Poland, responsible for many ridiculous experiments like 'CSS Nyan Cat' (https://developer.mozilla.org/pl/demos/detail/css-nyan-cat) or 'All your gradient are belong to us' (https://demoparty.mozillalabs.com/gallery/43/al-your-gradient-are-belong-to-us).
-Michal officiates as an HTML5 GameDev trainer in W3C and ran technical workshops and tech-talks in many countries on different continents. He recently organized onGameStart, the first HTML5 games conference and wants to bring JavaScript to the last and forgotten continent - Antarctica, with AntarcticJS (@antarcticjs). He safely says that making web a better place is not just his job - it's his lifestyle. That's why he founds BLYSK (http://bly.sk), soon-to-be-open-source first serious web animation tool</p>
-				</li><li>
-					<img src="headshot.jpg" alt="" />
-					<h3><span class="speaker">Leonardo Balter </span> - <span class="title">Mozilla Rep/Estante Virtual</span></h3>
-					<p>eo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil.</p>
-				</li>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Michal Budzynski</h3>
+						<h4 class="company">onGameStart / AntarticJS</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/michal-budzynski.jpg" alt="" /></span>
+					<p>Michal is an Open Web Alchemist from Warsaw, Poland, responsible for many ridiculous experiments like <a href="https://developer.mozilla.org/pl/demos/detail/css-nyan-cat">CSS Nyan Cat</a> or <a href="https://demoparty.mozillalabs.com/gallery/43/al-your-gradient-are-belong-to-us">All your gradient are belong to us</a>.
+Michal officiates as an HTML5 GameDev trainer in W3C and ran technical workshops and tech-talks in many countries on different continents. He recently organized onGameStart, the first HTML5 games conference and wants to bring JavaScript to the last and forgotten continent - Antarctica, with <a href="http://twitter.com/antarcticjs">AntarcticJS</a>. He safely says that making web a better place is not just his job - it's his lifestyle. That's why he founds <a href="http://bly.sk">BLYSK</a>, soon-to-be-open-source first serious web animation tool</p>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Leonardo Balter</h3>
+						<h4 class="company">Mozilla Rep / Estante Virtual</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/leonardo-balter.jpg" alt="" /></span>
+					<p>Leo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil.</p>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Zeno Rocha</h3>
+						<h4 class="company">globoesporte.com</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/zeno-rocha.jpg" alt="" /></span>
+					<p>Um dos criadores do jQuery Boilerplate e do Wormz no Chrome Experiments. Já foi desenvolvedor de software na Petrobras e hoje trabalha no Globoesporte.com. Tem 21 anos e é estudante de Sistemas de Informação na Universidade Federal do Estado do Rio de Janeiro - UNIRIO.​</p>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Eduardo Lundgren</h3>
+						<h4 class="company">LifeRay</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/eduardo-lundgren.jpg" alt="" /></span>
+					<p>Um dos criadores do AlloyUI, sempre se envolve em projetos open source, ex-contribuidor do jQuery e jQuery UI. Graduado em Engenharia de Telecomunicações pela UPE e Mestrando em Ciência da Computação na UFPE. Atualmente é líder de desenvolvimento na Liferay.</p>
+				</article></li>
+				<li><article>
+					<hgroup>
+						<h3 class="speaker">Davidson Fellipe</h3>
+						<h4 class="company">globo.com</h2>
+					</hgroup>
+					<span class="photo"><img src="images/speakers/davidson-fellipe.jpg" alt="" /></span>
+					<p>Graduado em engenharia da computação pela UPE e técnico em eletrônica pelo IFPE. Fundador e moderador dos grupos riojs e pernambucojs. Atualmente é Desenvolvedor Frontend na Globo.com e Mestrando em Informática na PUC-Rio.</p>
+				</article></li>
 			</ul>
 		</section>
-		<section id="support">
+		<section class="support" id="support">
 			<h2>Apoio</h2>
 			<ul>
 				<li><img src="github.png" alt="GitHub" /></li>
@@ -79,7 +124,7 @@ Michal officiates as an HTML5 GameDev trainer in W3C and ran technical workshops
 				<li><img src="github.png" alt="GitHub" /></li>
 			</ul>
 		</section>
-		<section id="location">
+		<section class="location" id="location">
 			<h2>Local</h2>
 			<p>
 				<strong>Teatro do Bourbon Country</strong>
