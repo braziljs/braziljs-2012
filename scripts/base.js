@@ -9,6 +9,12 @@
     return document.querySelector(sel);
   };
 
+  if (window.requestAnimationFrame == null) {
+    window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || function(fn, el) {
+      return setTimeout(fn, 1000 / 60);
+    };
+  }
+
   poa = document.getElementById('poa');
 
   window.addEventListener('scroll', function(e) {
@@ -125,10 +131,9 @@
   offsetTop = function(el) {
     var top;
     if (!el.offsetParent) return;
-    top = 0;
-    while (true) {
+    top = el.offsetTop;
+    while (el = el.offsetParent) {
       top += el.offsetTop;
-      if (!(el = el.offsetParent)) break;
     }
     return top;
   };
@@ -151,9 +156,9 @@
         move = function() {
           pos += direction * 5;
           document.body.scrollTop = start + range * Math.sin(Math.PI / 2 * pos / 100);
-          if (!(pos > 99)) return webkitRequestAnimationFrame(move);
+          if (!(pos > 99)) return requestAnimationFrame(move);
         };
-        return webkitRequestAnimationFrame(move);
+        return requestAnimationFrame(move);
       });
     });
   }

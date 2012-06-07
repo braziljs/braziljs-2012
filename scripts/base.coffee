@@ -1,6 +1,13 @@
 $ = (sel) -> Array::slice.call document.querySelectorAll sel
 $$ = (sel) -> document.querySelector sel
 
+window.requestAnimationFrame ?= 
+    window.webkitRequestAnimationFrame or
+    window.mozRequestAnimationFrame or
+    window.msRequestAnimationFrame or
+    window.oRequestAnimationFrame or
+    (fn, el) -> setTimeout fn, 1000/60
+
 poa = document.getElementById 'poa'
 
 window.addEventListener 'scroll', (e) ->
@@ -101,10 +108,8 @@ else
 
 offsetTop = (el) ->
     return unless el.offsetParent
-    top = 0
-    loop
-        top += el.offsetTop
-        break if not el = el.offsetParent
+    top = el.offsetTop
+    top += el.offsetTop while el = el.offsetParent
     return top
 
 ###
@@ -123,6 +128,6 @@ if screen.width > 600
             move = ->
                 pos += direction * 5
                 document.body.scrollTop = start + range * Math.sin(Math.PI/2 * pos/100)
-                webkitRequestAnimationFrame(move) unless pos > 99
-            webkitRequestAnimationFrame move
+                requestAnimationFrame(move) unless pos > 99
+            requestAnimationFrame move
 
