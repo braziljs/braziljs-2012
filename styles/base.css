@@ -651,7 +651,13 @@ h5 {
 .registration:before {
   content: ' ';
   display: block;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(90, 90, 90, 0.05);
+  position: absolute;
+  top: 820px;
+  right: 0;
+  left: 0;
+  height: 300px;
+  z-index: -1;
 }
 .registration .prices {
   font: 36px/1.2 "League Gothic", sans-serif;
