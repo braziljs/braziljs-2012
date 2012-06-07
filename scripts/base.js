@@ -17,13 +17,19 @@
 
   poa = document.getElementById('poa');
 
-  window.addEventListener('scroll', function(e) {
-    var position;
-    position = document.body.scrollTop;
-    if (position < 600) {
-      poa.style.backgroundPositionY = (-position / 2.2).toFixed(1) + 'px';
-    }
-  });
+  /*
+  Paralaxe na imagem do topo
+  */
+
+  if (screen.width > 640) {
+    window.addEventListener('scroll', function(e) {
+      var position;
+      position = document.body.scrollTop;
+      if (position < 600) {
+        poa.style.backgroundPositionY = (-position / 2.2).toFixed(1) + 'px';
+      }
+    });
+  }
 
   $('.speaker-image').forEach(function(svg) {
     var active, href, pattern;

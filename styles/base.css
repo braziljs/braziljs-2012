@@ -443,7 +443,7 @@ html {
   background: url(../images/bg-lines.png);
 }
 #wrapper {
-  width: 880px;
+  max-width: 880px;
   padding: 0 50px;
   margin: 0 auto;
   color: #324340;
@@ -461,7 +461,7 @@ h5 {
   font-weight: 400;
   text-transform: uppercase;
 }
-#header,
+.header,
 #nav,
 #main,
 #footer {
@@ -482,7 +482,7 @@ h5 {
     background-size: 100% auto;
   }
 }
-#header {
+.header {
   width: 100%;
   padding: 35px 0;
   height: 520px;
@@ -492,43 +492,35 @@ h5 {
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   position: relative;
 }
-#header h1 {
-  display: block;
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
-  background-color: transparent;
-  width: 432px;
-  height: 120px;
-  background: url(../images/braziljs-logo.png) no-repeat 0 0;
+.header h1 {
   margin: 0 auto;
 }
-#header h2 {
+.header h2 {
   font-size: 60px;
   text-transform: uppercase;
   font-weight: 400;
   line-height: 1.1;
 }
-#header h2 b {
+.header h2 b {
   color: #c5f17f;
   font-weight: 400;
 }
-#header hgroup {
-  margin-bottom: 185px;
-}
-#header p {
+.header p {
   font-size: 42px;
   line-height: 1;
 }
-#header .text {
+.header .text {
   position: absolute;
-  width: 800px;
-  left: 50%;
-  bottom: 60px;
-  margin-left: -400px;
+  top: 65%;
+  width: 100%;
+  max-width: 980px;
+  text-align: center;
+  font-size: 42px;
+  line-height: 1;
+  z-index: 50;
 }
-#header .line,
-#header .where {
+.header .line,
+.header .where {
   display: -moz-inline-stack;
   display: inline-block;
   *display: inline;
@@ -536,18 +528,18 @@ h5 {
   width: 330px;
   vertical-align: top;
 }
-#header .line {
+.header .line {
   text-align: right;
   padding-right: 17px;
   color: #c5f17f;
   text-transform: uppercase;
 }
-#header .where {
+.header .where {
   text-align: left;
   padding-left: 17px;
 }
 @media only screen and (min-width: 1080px) {
-  #header {
+  .header {
     height: 560px;
   }
   #poa {
@@ -555,7 +547,7 @@ h5 {
   }
 }
 @media only screen and (min-width: 1140px) {
-  #header {
+  .header {
     height: 590px;
   }
   #poa {
@@ -563,7 +555,7 @@ h5 {
   }
 }
 @media only screen and (min-width: 1260px) {
-  #header {
+  .header {
     height: 620px;
   }
   #poa {
@@ -571,7 +563,7 @@ h5 {
   }
 }
 @media only screen and (min-width: 1340px) {
-  #header {
+  .header {
     height: 660px;
   }
   #poa {
@@ -579,7 +571,7 @@ h5 {
   }
 }
 @media only screen and (min-width: 1460px) {
-  #header {
+  .header {
     height: 700px;
   }
   #poa {
@@ -587,7 +579,7 @@ h5 {
   }
 }
 @media only screen and (min-width: 1600px) {
-  #header {
+  .header {
     height: 740px;
   }
   #poa {
@@ -595,11 +587,65 @@ h5 {
   }
 }
 @media only screen and (min-width: 1720px) {
-  #header {
+  .header {
     height: 820px;
   }
   #poa {
     height: 890px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #wrapper {
+    padding: 0 20px;
+  }
+  #poa {
+    height: 500px;
+  }
+  .header {
+    padding: 15px 0;
+    height: 470px;
+  }
+  .header img {
+    width: 90%;
+  }
+  .header h2 {
+    font-size: 48px;
+  }
+  .header .text {
+    top: 45%;
+  }
+  .header .line,
+  .header .where {
+    display: block;
+    width: auto;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .header h2 {
+    font-size: 32px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-device-width: 480px) {
+  .header img {
+    width: 40%;
+  }
+  .header h2 {
+    font-size: 20px;
+  }
+  .text {
+    top: 58%;
+  }
+  .line,
+  .where {
+    font-size: 18px;
+  }
+  .share {
+    margin-top: 0;
   }
 }
 #nav {
@@ -632,6 +678,21 @@ h5 {
 #nav a:active {
   color: #e6fffd;
 }
+@media only screen and (max-width: 600px) {
+  #nav {
+    top: 20px;
+    margin-bottom: 40px;
+  }
+  #nav li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  #nav a {
+    width: 50%;
+    font-size: 22px;
+    border-radius: 4px;
+  }
+}
 .main h2 {
   font-size: 48px;
   color: #324340;
@@ -646,18 +707,45 @@ h5 {
   display: inline-block;
   vertical-align: top;
   _float: left;
-  width: 436px;
+  width: 50%;
+  margin-right: -4px;
+}
+@media only screen and (max-width: 600px) {
+  .main .block {
+    display: block;
+    width: auto;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main section {
+    margin-top: 20px;
+  }
+  .main section h2 {
+    margin-left: -20px;
+    background: rgba(100, 130, 110, 0.1);
+    border: 1px solid #e1efbd;
+    border-width: 1px 0;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+  }
 }
 .registration:before {
   content: ' ';
   display: block;
   background: rgba(90, 90, 90, 0.05);
   position: absolute;
-  top: 820px;
   right: 0;
   left: 0;
   height: 300px;
   z-index: -1;
+  margin-top: -20px;
+}
+@media only screen and (max-width: 600px) {
+  .registration:before {
+    display: none;
+  }
 }
 .registration .prices {
   font: 36px/1.2 "League Gothic", sans-serif;
@@ -667,7 +755,7 @@ h5 {
   font-weight: 400;
 }
 .speakers ul {
-  margin: 40px 0;
+  margin: 40px 0 20px;
 }
 .speakers li {
   display: inline-block;
@@ -677,6 +765,11 @@ h5 {
   min-height: 120px;
   padding: 20px 20px 20px 140px;
   width: 270px;
+}
+@media only screen and (max-width: 600px) {
+  .speakers li {
+    width: auto;
+  }
 }
 .speakers .speaker {
   font-size: 36px;
@@ -719,7 +812,7 @@ h5 {
 .speakers .more {
   display: block;
   background: #0099ff;
-  height: 16px;
+  height: 14px;
   width: 16px;
   border-radius: 2px;
   border: 0;
@@ -728,7 +821,7 @@ h5 {
   font-weight: 700;
   text-align: center;
   line-height: 10px;
-  padding: 0;
+  padding: 0 0 2px;
   margin: 5px 0;
 }
 .speakers .more:hover {
@@ -742,9 +835,8 @@ h5 {
 }
 .js .speakers p {
   position: absolute;
-  top: 100px;
-  left: 160px;
-  width: 280px;
+  top: 0;
+  left: 0;
   visibility: hidden;
   z-index: -1;
   z-index: 10;
@@ -761,6 +853,32 @@ h5 {
   z-index: 10;
   height: 0;
   overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .speakers li {
+    padding: 10px 10px 10px 70px;
+    min-height: 60px;
+  }
+  .speakers .speaker {
+    font-size: 32px;
+  }
+  .speakers .company {
+    font-size: 22px;
+  }
+  .speakers .photo {
+    width: 60px;
+    height: 60px;
+  }
+  .speakers .photo img,
+  .speakers .photo canvas {
+    width: 60px;
+  }
+  .speakers .photo:hover img {
+    top: -60px;
+  }
+  .speakers article:active img {
+    top: -60px;
+  }
 }
 #footer {
   padding: 40px 0;

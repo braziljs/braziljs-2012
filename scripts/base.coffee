@@ -10,7 +10,10 @@ window.requestAnimationFrame ?=
 
 poa = document.getElementById 'poa'
 
-window.addEventListener 'scroll', (e) ->
+###
+Paralaxe na imagem do topo
+###
+if screen.width > 640 then window.addEventListener 'scroll', (e) ->
     position = document.body.scrollTop
     poa.style.backgroundPositionY = (-position/2.2).toFixed(1) + 'px' if position < 600
     return
@@ -115,19 +118,18 @@ offsetTop = (el) ->
 ###
 Scrolling effect for navigation
 ###
-if screen.width > 600
-    $('#nav a').forEach (a) ->
-        a.addEventListener 'click', (e) ->
-            target = e.target.hash
-            return unless target
-            end = offsetTop $$(target)
-            pos = 0
-            start = document.body.scrollTop
-            range = end - start
-            direction = if end > start then 1 else -1
-            move = ->
-                pos += direction * 5
-                document.body.scrollTop = start + range * Math.sin(Math.PI/2 * pos/100)
-                requestAnimationFrame(move) unless pos > 99
-            requestAnimationFrame move
+if screen.width > 600 then $('#nav a').forEach (a) ->
+    a.addEventListener 'click', (e) ->
+        target = e.target.hash
+        return unless target
+        end = offsetTop $$(target)
+        pos = 0
+        start = document.body.scrollTop
+        range = end - start
+        direction = if end > start then 1 else -1
+        move = ->
+            pos += direction * 5
+            document.body.scrollTop = start + range * Math.sin(Math.PI/2 * pos/100)
+            requestAnimationFrame(move) unless pos > 99
+        requestAnimationFrame move
 

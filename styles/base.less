@@ -59,7 +59,7 @@ html {
 }
 
 #wrapper {
-    width:@pagewidth - 100px;
+    max-width:@pagewidth - 100px;
     padding:0 50px;
     margin:0 auto;
     color:@dark;
@@ -76,7 +76,7 @@ h1,h2,h3,h4,h5 {
     text-transform:uppercase;
 }
 
-#header,
+.header,
 #nav,
 #main,
 #footer {
@@ -101,7 +101,7 @@ h1,h2,h3,h4,h5 {
     z-index:-1;
 }
 
-#header {
+.header {
     width:100%;
     padding:@headerpad 0;
     height:@headerheight - (@headerpad * 2);
@@ -111,7 +111,6 @@ h1,h2,h3,h4,h5 {
     text-shadow:0 1px 6px rgba(0,0,0,0.1);
     position:relative;
     h1 {
-        .IR(432px, 120px, url(../images/braziljs-logo.png));
         margin:0 auto;
     }
     h2 {
@@ -124,19 +123,19 @@ h1,h2,h3,h4,h5 {
             font-weight:400;
         }
     }
-    hgroup {
-        margin-bottom:185px;
-    }
     p {
         font-size:42px;
         line-height:1;
     }
     .text {
         position:absolute;
-        width:800px;
-        left:50%;
-        bottom:60px;
-        margin-left:-400px;
+        top:65%;
+        width:100%;
+        max-width:980px;
+        text-align:center;
+        font-size:42px;
+        line-height:1;
+        z-index:50;
     }
     .line, .where {
         .inline-block();
@@ -155,40 +154,91 @@ h1,h2,h3,h4,h5 {
     }
 }
 
+// large screens
 @media only screen and (min-width: 1080px) {
     @h: 40px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1140px) {
     @h: 70px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1260px) {
     @h: 100px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1340px) {
     @h: 140px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1460px) {
     @h: 180px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1600px) {
     @h: 220px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
 }
 @media only screen and (min-width: 1720px) {
     @h: 300px;
-    #header { height:@headerheight + @h - (@headerpad * 2); }
+    .header { height:@headerheight + @h - (@headerpad * 2); }
     #poa { height:@headerheight + @h; }
+}
+
+// small screens
+@media only screen and (max-width: 600px) {
+    #wrapper {
+        padding:0 20px;
+    }
+    #poa {
+        height:500px;
+    }
+    .header {
+        padding:15px 0;
+        height:470px;
+        img { width:90%; }
+        h2 { font-size:48px; }
+        .text {
+            top:45%;
+        }
+        .line, .where {
+            display:block;
+            width:auto;
+            text-align:center;
+            padding:0;
+            margin-bottom:20px;
+            margin:0 auto 20px;
+            font-size:32px;
+        }
+    }
+}
+@media only screen and (max-width:480px) {
+    .header {
+        h2 { font-size:32px; }
+    }
+}
+// landscape
+
+@media only screen and (min-width:321px) and (max-device-width:480px) {
+    .header {
+        img { width:40%; }
+        h2 { font-size:20px; }
+    }
+    .text {
+        top:58%;
+    }
+    .line, .where {
+        font-size:18px;
+    }
+    .share {
+        margin-top:0;
+    }
 }
 
 #nav {
@@ -216,6 +266,19 @@ h1,h2,h3,h4,h5 {
     a:active {
         color:@offwhite;
     }
+    @media only screen and (max-width: 600px) {
+        top:20px;
+        margin-bottom:40px;
+        li {
+            display:block;
+            margin-bottom:10px;
+        }
+        a {
+            width:50%;
+            font-size:22px;
+            border-radius:4px;
+        }
+    }
 }
 
 .main {
@@ -233,7 +296,27 @@ h1,h2,h3,h4,h5 {
         display:inline-block;
         vertical-align:top;
         _float:left;
-        width:436px;
+        width:50%;
+        margin-right:-4px;
+        @media only screen and (max-width:600px){
+            display:block;
+            width:auto;
+            margin-bottom:20px;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        section {
+            margin-top:20px;
+            h2 {
+                margin-left:-20px;
+                background:rgba(100,130,110,0.1);
+                border:1px solid lighten(@textgreen, 30);
+                border-width:1px 0;
+                padding:0 20px;
+                width:100%;
+                text-align:center;
+            }
+        }
     }
 }
 
@@ -243,11 +326,14 @@ h1,h2,h3,h4,h5 {
         display:block;
         background:rgba(90,90,90,0.05);
         position:absolute;
-        top:820px;
         right:0;
         left:0;
         height:300px;
         z-index:-1;
+        margin-top:-20px;
+        @media only screen and (max-width:600px){
+            display:none;
+        }
     }
     .prices {
         font: 36px/1.2 @titles;
@@ -258,7 +344,7 @@ h1,h2,h3,h4,h5 {
 
 .speakers {
     ul {
-        margin:40px 0;
+        margin:40px 0 20px;
     }
     li {
         display:inline-block;
@@ -268,6 +354,9 @@ h1,h2,h3,h4,h5 {
         min-height:120px;
         padding:20px 20px 20px 140px;
         width:440px - 170;
+        @media only screen and (max-width:600px){
+            width:auto;
+        }
     }
     .speaker {
         font-size:36px;
@@ -307,7 +396,7 @@ h1,h2,h3,h4,h5 {
     .more {
         display:block;
         background:@blue;
-        height:16px;
+        height:14px;
         width:16px;
         border-radius:2px;
         border:0;
@@ -316,7 +405,7 @@ h1,h2,h3,h4,h5 {
         font-weight:700;
         text-align:center;
         line-height:10px;
-        padding:0;
+        padding:0 0 2px;
         margin:5px 0;
         &:hover {
             background:lighten(@blue, 5);
@@ -336,9 +425,8 @@ h1,h2,h3,h4,h5 {
 .js .speakers {
     p {
         position:absolute;
-        top:100px;
-        left:160px;
-        width:280px;
+        top:0;
+        left:0;
         visibility:hidden;
         z-index:-1;
         
@@ -353,6 +441,30 @@ h1,h2,h3,h4,h5 {
         z-index:10;
         height:0;
         overflow:hidden;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .speakers {
+        li {
+            padding:10px 10px 10px 70px;
+            min-height:60px;
+        }
+        .speaker { font-size:32px; }
+        .company { font-size:22px; }
+        .photo {
+            width:60px;
+            height:60px;
+            img, canvas {
+                width:60px;
+            }
+            &:hover img {
+                top:-60px;
+            }
+        }
+        article:active{
+            img { top:-60px; }
+        }
     }
 }
 
