@@ -1,6 +1,5 @@
 // MIXINS
 .inline-block() {
-    display:-moz-inline-stack;
     display:inline-block;
     *display:inline;
     *zoom:1;
@@ -41,9 +40,12 @@
 .animation(@_) {
     -webkit-animation:@arguments;
        -moz-animation:@arguments;
-        -ms-animation:@arguments;
-         -o-animation:@arguments;
             animation:@arguments;
+}
+.animation-delay(@_){
+    -webkit-animation-delay:@arguments;
+       -moz-animation-delay:@arguments;
+            animation-delay:@arguments;
 }
 
 .transition(@trans) {

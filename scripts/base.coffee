@@ -35,6 +35,7 @@ $('.speaker-image').forEach (svg) ->
 Faz buracos nas fotos dos palestrantes. PNG é para os fracos,
 e assim as imagens ficam muito mais leves
 ###
+
 createCanvas = (w, h) ->
     canvas = document.createElement 'canvas'
     canvas.width = w
@@ -57,79 +58,79 @@ stamp = (image, x, y) ->
     ctx.fill()
     ctx.stroke()
     return canvas
-    
 
 pokeHoles = (image) ->
     # normal
-    canvas = stamp image, 0, 0
-    image.parentNode.appendChild canvas
+    canvas1 = stamp image, 0, 0
+    image.parentNode.appendChild canvas1
     # hover
-    canvas = stamp image, 0, -120
-    canvas.className = 'active'
-    image.parentNode.appendChild canvas
+    canvas2 = stamp image, 0, -120
+    canvas2.className = 'active'
+    image.parentNode.appendChild canvas2
     # remover imagem original
     image.parentNode.removeChild image
+    # salvar em cache
+    localStorage[image.src] = canvas1.toDataURL()
+    localStorage[image.src+':hover'] = canvas2.toDataURL()
+    console.log localStorage[image.src+':hover']?
 
-$('.speakers .photo img').forEach (image) ->
-    img = new Image
-    img.onload = -> pokeHoles image
-    img.src = image.src
+if document.createElement('canvas').getContext?
+    $('.speakers .photo img').forEach (image) ->
+        image.className = 'preparing'
+        source = image.src
+        try
+            if cached = localStorage[source]
+                image.src = cached
+                image.className = 'gen'
+                active = new Image
+                active.src = localStorage[source+':hover']
+                active.className = 'active'
+                image.parentNode.appendChild active
+            else
+                img = new Image
+                img.onload = -> pokeHoles image
+                img.src = image.src
+        catch e
+            # revert to original images
+            image.className = ''
 
 ###
-Expandir mais info sobre palestrante
+Scrolling effect for navigation
 ###
-
-cssInfo = document.createElement 'style'
-cssInfo.type = 'text/css'
-$$('head').appendChild cssInfo
-
-rules = ""
-
-$('.speakers p').forEach (p, i) ->
-
-    more = document.createElement 'button'
-    more.className = 'more'
-    more.innerHTML = '+'
-    p.parentNode.insertBefore more, p
-
-    more.parentNode.addEventListener 'click', (e) ->
-        e.preventDefault()
-        if p.className.indexOf('open') < 0
-            p.className = 'open'
-        else
-            p.className = ''
-
-    # medir altura do texto e criar regra para transition
-    height = parseInt(getComputedStyle(p).height, 10)
-    rules += "#info-#{i}.open { height:#{height}px; }"
-    p.id = "info-#{i}"
-
-if cssInfo.styleSheet
-    cssInfo.styleSheet.cssText = rules
-else
-    cssInfo.appendChild document.createTextNode rules
-
 offsetTop = (el) ->
     return unless el.offsetParent
     top = el.offsetTop
     top += el.offsetTop while el = el.offsetParent
     return top
 
-###
-Scrolling effect for navigation
-###
+animateScrollTo = (end, speed = 5) ->
+    pos = 0
+    start = document.body.scrollTop
+    range = end - start
+    direction = if end > start then 1 else -1
+    move = ->
+        pos += direction * speed
+        scroll = document.body.scrollTop = start + range * Math.sin(Math.PI/2 * pos/100)
+        return if direction is 1 and scroll >= end
+        return if direction is -1 and scroll <= end
+        requestAnimationFrame move
+    move()
+
 if screen.width > 600 then $('#nav a').forEach (a) ->
     a.addEventListener 'click', (e) ->
-        target = e.target.hash
-        return unless target
-        end = offsetTop $$(target)
-        pos = 0
-        start = document.body.scrollTop
-        range = end - start
-        direction = if end > start then 1 else -1
-        move = ->
-            pos += direction * 5
-            document.body.scrollTop = start + range * Math.sin(Math.PI/2 * pos/100)
-            requestAnimationFrame(move) unless pos > 99
-        requestAnimationFrame move
+        target = (e.target.href.split('#') || [])[1]
+        return unless target?
+        end = offsetTop $$('#'+target)
+        animateScrollTo end
 
+window.addEventListener 'load', ->
+    return if screen.width < 600
+    if window.location.hash isnt ""
+        if target = $$(location.hash)
+            end = offsetTop(target) - 20
+            animateScrollTo end, 20
+    else if $$('.page')?
+        console.lg
+        end = offsetTop $$('.main')
+        animateScrollTo end
+, false

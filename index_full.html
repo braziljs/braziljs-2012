@@ -1,172 +1,32 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="ie6" lang="pt-BR"> <![endif]-->
-<!--[if IE 7]>    <html class="ie7" lang="pt-BR"> <![endif]-->
-<!--[if IE 8]>    <html class="ie8" lang="pt-BR"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="pt-BR"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8" />
-	<meta property="og:title" content="BrazilJS" />
-    <meta property="og:description" content="BrazilJS 2012 - Porto Alegre. A maior conferência de Javascript do universo!" />
-    <meta property="og:image" content="http://braziljs.com.br/images/braziljs_thumb_200.jpg" />
-    <meta property="og:url" content="http://braziljs.com.br/" />
-    <meta name="description" content="BrazilJS 2012 - Porto Alegre. A maior conferência de Javascript do universo!" />
-    <meta name="keywords" content="braziljs javascript conferencia porto alegre palestras front-end client-side evento js programacao coffeescript node.js node web standards webdev webdesign" />
-	<title>BrazilJS - Porto Alegre 2012</title>
-	<script>document.getElementsByTagName('html')[0].className+=' js'</script>
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0" />
-	<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-	<link rel="stylesheet" href="styles/base.css" />
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-32119524-1']);
-	  _gaq.push(['_setDomainName', 'braziljs.com.br']);
-	  _gaq.push(['_trackPageview']);
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
-</head>
-<body>
-<div id="wrapper">
+---
+layout: default
+title: BrazilJS - Porto Alegre 2012
+---
 
-	<header class="header">
-		<hgroup>
-			<h1><img src="images/braziljs-logo.png" alt="BrazilJS" /></h1>
-			<h2>Porto Alegre <b>2012</b></h2>
-		</hgroup>
-		<div class="text">
-			<p class="line">
-				A maior conferência<br /> 
-				de JavaScript<br /> 
-				do universo
-			</p>
-			<p class="where">
-				25 de Junho<br /> 
-				Teatro do Bourbon Country<br /> 
-				Porto Alegre / RS
-			</p>
-		</div>
-	</header>
+<section class="registration" id="register">
+    {% include tickets.html %}
+</section>
 
-	<nav id="nav">
-		<ul>
-			<li class="active"><a href="#register">Inscrições</a></li>
-			<li><a href="#speakers">Palestrantes</a></li>
-			<li><a href="#support">Apoio</a></li>
-			<li><a href="#location">Local</a></li>
-		</ul>
-	</nav>
+<section class="speakers" id="speakers">
+    <h2>Palestrantes</h2>
+    <ul>
+    {% for speaker in site.categories.speakers %}
+        <li><article>
+            <hgroup>
+                <h3 class="speaker">{{ speaker.title }}</h3>
+                <h4 class="company">{{ speaker.subtitle }}</h4>
+                <a class="more" href="/palestrantes/#{{ speaker.title | downcase | replace:' ','-' }}">+</a>
+            </hgroup>
+            <span class="photo"><img src="{{ speaker.image }}" /></span>
+        </article></li>
+    {% endfor %}
+    </ul>
+</section>
 
-	<div class="main">
-		<section class="registration" id="register">
-			<h2>Inscrições</h2>
-			<div class="block">
-				<p>BrazilJS é uma conferência de Javascript...</p>
-			</div>
-			<div class="block tickets">
-				<ul class="prices">
-					<li><strong>R$ 500,00 - até 25/06</strong></li>
-					<li><strong>R$ 800,00 - até 10/07</strong></li>
-				</ul>
-				<a class="button" id="register" href="#">Inscreva-se</a>
-			</div>
-		</section>
-		<section class="speakers" id="speakers">
-			<h2>Palestrantes</h2>
-			<ul>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Richard Worth</h3>
-						<h4 class="company">jQueryUI/Bocoup</h2>
-					</hgroup>
-					<p>Richard D. Worth é diretor executivo da jQuery Foundation e líder do projeto jQuery UI. Ele mora em Washington, D.C. e trabalha na Bocoup, treinando desenvolvedores em JavaScript, jQuery, and jQuery UI.</p>
-					<span class="photo"><img src="images/speakers/richard-worth.jpg" /></span>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Jacob Thornton</h3>
-						<h4 class="company">Twitter</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/jacob-thornton.jpg" alt="" /></span>
-					<p>Jacob é engenheiro no Twitter e co-author de vários projetos interessantes e conhecidos na comunidade JavaScript, entre eles: Bootstrap, Ender, Hogan.js.</p>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Michal Budzynski</h3>
-						<h4 class="company">onGameStart / AntarticJS</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/michal-budzynski.jpg" alt="" /></span>
-					<p>Michal is an Open Web Alchemist from Warsaw, Poland, responsible for many ridiculous experiments like <a href="https://developer.mozilla.org/pl/demos/detail/css-nyan-cat">CSS Nyan Cat</a> or <a href="https://demoparty.mozillalabs.com/gallery/43/al-your-gradient-are-belong-to-us">All your gradient are belong to us</a>.
-Michal officiates as an HTML5 GameDev trainer in W3C and ran technical workshops and tech-talks in many countries on different continents. He recently organized onGameStart, the first HTML5 games conference and wants to bring JavaScript to the last and forgotten continent - Antarctica, with <a href="http://twitter.com/antarcticjs">AntarcticJS</a>. He safely says that making web a better place is not just his job - it's his lifestyle. That's why he founds <a href="http://bly.sk">BLYSK</a>, soon-to-be-open-source first serious web animation tool</p>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Leonardo Balter</h3>
-						<h4 class="company">Mozilla Rep / Estante Virtual</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/leonardo-balter.jpg" alt="" /></span>
-					<p>Leo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil.</p>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Zeno Rocha</h3>
-						<h4 class="company">globoesporte.com</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/zeno-rocha.jpg" alt="" /></span>
-					<p>Um dos criadores do jQuery Boilerplate e do Wormz no Chrome Experiments. Já foi desenvolvedor de software na Petrobras e hoje trabalha no Globoesporte.com. Tem 21 anos e é estudante de Sistemas de Informação na Universidade Federal do Estado do Rio de Janeiro - UNIRIO.​</p>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Eduardo Lundgren</h3>
-						<h4 class="company">LifeRay</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/eduardo-lundgren.jpg" alt="" /></span>
-					<p>Um dos criadores do AlloyUI, sempre se envolve em projetos open source, ex-contribuidor do jQuery e jQuery UI. Graduado em Engenharia de Telecomunicações pela UPE e Mestrando em Ciência da Computação na UFPE. Atualmente é líder de desenvolvimento na Liferay.</p>
-				</article></li>
-				<li><article>
-					<hgroup>
-						<h3 class="speaker">Davidson Fellipe</h3>
-						<h4 class="company">globo.com</h2>
-					</hgroup>
-					<span class="photo"><img src="images/speakers/davidson-fellipe.jpg" alt="" /></span>
-					<p>Graduado em engenharia da computação pela UPE e técnico em eletrônica pelo IFPE. Fundador e moderador dos grupos riojs e pernambucojs. Atualmente é Desenvolvedor Frontend na Globo.com e Mestrando em Informática na PUC-Rio.</p>
-				</article></li>
-			</ul>
-		</section>
-		<section class="support" id="support">
-			<h2>Apoio</h2>
-			<ul>
-				<li><img src="github.png" alt="GitHub" /></li>
-				<li><img src="github.png" alt="GitHub" /></li>
-				<li><img src="github.png" alt="GitHub" /></li>
-			</ul>
-		</section>
-		<section class="location" id="location">
-			<h2>Local</h2>
-			<p>
-				<strong>Teatro do Bourbon Country</strong>
-				<p>
-					Bourboun Shopping Country
-					Av. Túlio de Rose, n 80 - SUC 301 A
-					Porto Alegre / RS
-				</p>
-				<p><a href="#">ver mapa</a></p>
-				<a href="googlemaps.com"><img src="maps.gif" alt="" /></a>
-				<img src="lugar.jpg" alt="" />
-		</section>
-	</div>
+<!--<section class="support" id="support">
+    {% include sponsors.html %}
+</section>-->
 
-</div>
-
-	<footer id="footer">
-		footer
-	</footer>
-
-	<div id="poa"></div>
-
-	<script src="scripts/base.js"></script>
-	
-</body>
-</html>
+<section class="location" id="location">
+    {% include location.html %}
+</section>

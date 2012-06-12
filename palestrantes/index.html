@@ -1,0 +1,20 @@
+---
+layout: default
+title: Palestrantes | BrazilJS - Porto Alegre 2012
+---
+
+<section class="speakers page" id="speakers">
+    <h2>Palestrantes</h2>
+    <ul>
+    {% for speaker in site.categories.speakers %}
+        <li id="{{ speaker.title | downcase | replace:' ','-' }}"><article>
+            <hgroup>
+                <h3 class="speaker">{{ speaker.title }}</h3>
+                <h4 class="company">{{ speaker.subtitle }}</h2>
+            </hgroup>
+            {{ speaker.content }}
+            <span class="photo"><img src="{{ speaker.image }}" /></span>
+        </article></li>
+    {% endfor %}
+    </ul>
+</section>
