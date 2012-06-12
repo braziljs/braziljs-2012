@@ -482,8 +482,6 @@ h5 {
   margin-top: 6%;
   -webkit-animation: fadein 3s;
   -moz-animation: fadein 3s;
-  -ms-animation: fadein 3s;
-  -o-animation: fadein 3s;
   animation: fadein 3s;
 }
 .header h1 {
@@ -509,14 +507,11 @@ h5 {
   line-height: 1;
   -webkit-animation: fadein 3s;
   -moz-animation: fadein 3s;
-  -ms-animation: fadein 3s;
-  -o-animation: fadein 3s;
   animation: fadein 3s;
   z-index: 50;
 }
 .line,
 .where {
-  display: -moz-inline-stack;
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -543,6 +538,10 @@ h5 {
 .share li {
   width: 114px;
   display: inline-block;
+}
+.share .twitter a {
+  font-size: 20px;
+  color: #e6fffd;
 }
 @media only screen and (max-width: 480px) {
   .header img {
