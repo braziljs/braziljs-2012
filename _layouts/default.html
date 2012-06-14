@@ -13,22 +13,7 @@
     <meta property="og:url" content="http://braziljs.com.br/" />
     <meta name="description" content="BrazilJS 2012 - Porto Alegre. A maior conferência de Javascript do universo!" />
     <meta name="keywords" content="braziljs javascript conferencia porto alegre palestras front-end client-side evento js programacao coffeescript node.js node web standards webdev webdesign" />
-    <title>{{ page.title }}</title>
-    <script>document.getElementsByTagName('html')[0].className+=' js'</script>
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-32119524-1']);
-      _gaq.push(['_setDomainName', 'braziljs.com.br']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    {% include parts/header.html %}
 </head>
 <body>
 <div id="wrapper">
@@ -45,7 +30,7 @@
                 do universo
             </p>
             <p class="where">
-                25 de Junho<br /> 
+                30 e 31 de Agosto<br /> 
                 Teatro do Bourbon Country<br /> 
                 Porto Alegre / RS
             </p>
@@ -70,13 +55,17 @@
 
     <footer id="footer">
         <section class="sponsors">
+            <h2>Patrocinado por</h2>
             {% include sponsors.html %}
+        </section>
+        <section class="credits">
+            <a href="http://gri.fo">Desenvolvido por Grifo</a>
         </section>
     </footer>
 
     <div id="poa"></div>
 
-    <script src="/scripts/base.js"></script>
+    {% include parts/footer.html %}
     
 </body>
 </html>

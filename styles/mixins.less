@@ -55,6 +55,14 @@
             transition: @trans;
 }
 
+.transform(@trans) {
+    -webkit-transform: @trans;
+       -moz-transform: @trans;
+        -ms-transform: @trans;
+         -o-transform: @trans;
+            transform: @trans;
+}
+
 .linear-gradient(@from, @to){
     background-color: lighten(@from + @to, 40);
     background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));

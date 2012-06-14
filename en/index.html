@@ -1,21 +1,21 @@
 ---
-layout: default
+layout: default_en
 title: BrazilJS - Porto Alegre 2012
 ---
 
 <section class="registration" id="register">
-    {% include tickets.html %}
+    {% include en/tickets.html %}
 </section>
 
 <section class="speakers" id="speakers">
-    <h2>Palestrantes</h2>
+    <h2>Speakers</h2>
     <ul>
-    {% for speaker in site.categories.speakers %}
+    {% for speaker in site.categories['speakers-en'] %}
         <li><article>
             <hgroup>
                 <h3 class="speaker">{{ speaker.title }}</h3>
                 <h4 class="company">{{ speaker.subtitle }}</h4>
-                <a class="more" href="/palestrantes/#{{ speaker.title | downcase | replace:' ','-' }}">+</a>
+                <a class="more" href="/en/speakers/#{{ speaker.title | downcase | replace:' ','-' }}">+</a>
             </hgroup>
             <span class="photo"><img src="{{ speaker.image }}" /></span>
         </article></li>
@@ -23,6 +23,10 @@ title: BrazilJS - Porto Alegre 2012
     </ul>
 </section>
 
+<!--<section class="support" id="support">
+    {% include sponsors.html %}
+</section>-->
+
 <section class="location" id="location">
-    {% include location.html %}
+    {% include en/location.html %}
 </section>

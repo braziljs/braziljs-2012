@@ -1,0 +1,71 @@
+---
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="BrazilJS" />
+    <meta property="og:description" content="BrazilJS 2012 - Porto Alegre. The greatest javascript conference in the universe!" />
+    <meta property="og:image" content="http://braziljs.com.br/images/braziljs_thumb_200.jpg" />
+    <meta property="og:url" content="http://braziljs.com.br/" />
+    <meta name="description" content="BrazilJS 2012 - Porto Alegre. The greatest javascript conference in the universe!" />
+    <meta name="keywords" content="braziljs javascript conference event porto alegre front-end client-side js development coffeescript node.js node web standards webdev webdesign" />
+    {% include parts/header.html %}
+</head>
+<body>
+<div id="wrapper">
+
+    <header class="header">
+        <hgroup>
+            <h1><a href="/"><img src="/images/braziljs-logo.png" alt="BrazilJS" /></a></h1>
+            <h2>Porto Alegre <b>2012</b></h2>
+        </hgroup>
+        <div class="text">
+            <p class="line">
+                The greatest<br /> 
+                javascript conference<br /> 
+                in the universe
+            </p>
+            <p class="where">
+                August 30 &amp; 31<br /> 
+                Teatro do Bourbon Country<br /> 
+                Porto Alegre / RS
+            </p>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="/en/">Home</a></li>
+            <li><a href="/en/#register">Attend</a></li>
+            <li><a href="/en/speakers">Speakers</a></li>
+            <li><a href="/en/#location">Location</a></li>
+            <li><a href="/en/about">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        {{ content }}
+    </div>
+
+</div>
+
+    <footer id="footer">
+        <section class="sponsors">
+            <h2>Sponsored by</h2>
+            {% include sponsors.html %}
+        </section>
+        <section class="credits">
+            <a href="http://gri.fo">Developed by Grifo</a>
+        </section>
+    </footer>
+
+    <div id="poa"></div>
+
+    {% include parts/footer.html %}
+    
+</body>
+</html>

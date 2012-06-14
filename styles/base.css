@@ -1052,12 +1052,13 @@ h5 {
   vertical-align: middle;
 }
 #footer {
-  padding: 40px 0;
+  padding: 40px 0 0;
   margin-top: 80px;
   background: #324340;
   min-height: 400px;
   text-align: center;
-  border-bottom: 10px solid #557777;
+  position: relative;
+  overflow: hidden;
 }
 #footer section {
   max-width: 940px;
@@ -1080,4 +1081,46 @@ h5 {
   display: inline-block;
   vertical-align: middle;
   margin: 10px;
+}
+#footer .credits {
+  max-width: 980px;
+  padding: 20px 0 40px;
+  margin: 20px auto 0;
+  border-top: 2px dotted #00665e;
+  position: relative;
+}
+#footer .credits a {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  display: block;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+  width: 80px;
+  height: 90px;
+  background: url(/images/tag-grifo.png) no-repeat 0 0;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+#footer .credits a:hover {
+  bottom: -2px;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+#footer .credits:after {
+  display: block;
+  content: 'Desenvolvido por';
+  position: absolute;
+  bottom: 20px;
+  right: 90px;
+  font-size: 14px;
+  color: #1affed;
 }

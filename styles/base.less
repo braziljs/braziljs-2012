@@ -592,7 +592,7 @@ h1,h2,h3,h4,h5 {
 }
 
 #footer {
-    padding:40px 0;
+    padding:40px 0 0;
     margin-top:80px;
     //@from: rgba(50,60,60,0.05);
     //@to: rgba(50,60,60,0.4);
@@ -600,7 +600,9 @@ h1,h2,h3,h4,h5 {
     background:@dark;
     min-height:400px;
     text-align:center;
-    border-bottom:10px solid #557777;
+    //border-bottom:10px solid #557777;
+    position:relative;
+    overflow:hidden;
     section {
         max-width:940px;
         margin:0 auto;
@@ -621,6 +623,34 @@ h1,h2,h3,h4,h5 {
             display:inline-block;
             vertical-align:middle;
             margin:10px;
+        }
+    }
+    .credits {
+        max-width:980px;
+        padding:20px 0 40px;
+        margin:20px auto 0;
+        border-top:2px dotted darken(@offwhite, 75);
+        position:relative;
+        a {
+            position:absolute;
+            bottom:-10px;
+            right:0;
+            .IR(80px, 90px, url(/images/tag-grifo.png));
+            .transition(all .2s);
+            cursor:pointer;
+            &:hover {
+                bottom:-2px;
+                .transform(rotate(-2deg));
+            }
+        }
+        &:after {
+            display:block;
+            content:'Desenvolvido por';
+            position:absolute;
+            bottom:20px;
+            right:90px;
+            font-size:14px;
+            color:darken(@offwhite, 40);
         }
     }
 }
