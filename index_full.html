@@ -3,10 +3,6 @@ layout: default
 title: BrazilJS - Porto Alegre 2012
 ---
 
-<section class="registration" id="register">
-    {% include tickets.html %}
-</section>
-
 <section class="speakers" id="speakers">
     <h2>Palestrantes</h2>
     <ul>
@@ -21,6 +17,14 @@ title: BrazilJS - Porto Alegre 2012
         </article></li>
     {% endfor %}
     </ul>
+</section>
+
+<section class="registration" id="register">
+    {% include tickets.html %}
+</section>
+
+<section class="program" id="program">
+    {% include program.html %}
 </section>
 
 <section class="location" id="location">
