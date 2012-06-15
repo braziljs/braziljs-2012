@@ -1099,6 +1099,9 @@ h5 {
   text-shadow: 2px 2px 0px #00766c;
   text-align: left;
 }
+#footer .sponsors h2 {
+  margin-bottom: 40px;
+}
 #footer .sponsors ul {
   border-bottom: 1px dotted #00665e;
 }
