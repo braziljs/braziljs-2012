@@ -872,6 +872,9 @@ h5 {
   min-height: 160px;
   padding: 20px 20px 20px 140px;
   width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   margin-right: -4px;
 }
@@ -1084,7 +1087,6 @@ h5 {
   padding: 40px 0 0;
   margin-top: 80px;
   background: #324340;
-  min-height: 400px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1104,6 +1106,7 @@ h5 {
 }
 #footer .sponsors ul {
   border-bottom: 1px dotted #00665e;
+  margin-bottom: 40px;
 }
 #footer .sponsors ul:last-child,
 #footer .sponsors ul:last-of-type {
