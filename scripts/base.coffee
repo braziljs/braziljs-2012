@@ -134,3 +134,11 @@ window.addEventListener 'load', ->
         end = offsetTop $$('.main')
         animateScrollTo end
 , false
+
+###
+External links
+###
+$('a[rel=external]').forEach (a) ->
+    a.addEventListener 'click', (e) ->
+        e.preventDefault()
+        window.open e.target.href

@@ -192,4 +192,16 @@
     }
   }, false);
 
+  /*
+  External links
+  */
+
+
+  $('a[rel=external]').forEach(function(a) {
+    return a.addEventListener('click', function(e) {
+      e.preventDefault();
+      return window.open(e.target.href);
+    });
+  });
+
 }).call(this);
