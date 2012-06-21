@@ -561,6 +561,38 @@ h5 {
     background-size: 100% auto;
   }
 }
+.lang {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.lang .flag {
+  float: left;
+  width: 24px;
+  height: 16px;
+  margin-left: 5px;
+  display: block;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+  width: 24px;
+  height: 16px;
+  background: url(../images/sprite-flags.png) no-repeat 0 0;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  opacity: .6;
+}
+.lang .flag:hover {
+  opacity: .9;
+}
+.lang .en {
+  background-position: 0  0px;
+}
+.lang .br {
+  background-position: 0 -16px;
+}
 .header {
   width: 100%;
   padding: 35px 0;

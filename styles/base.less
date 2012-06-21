@@ -142,6 +142,24 @@ h1,h2,h3,h4,h5 {
     z-index:-1;
 }
 
+.lang {
+    position:absolute;
+    top:10px;
+    right:10px;
+    .flag {
+        float:left;
+        width:24px;
+        height:16px;
+        margin-left:5px;
+        .IR(24px, 16px, url(../images/sprite-flags.png));
+        .box-shadow(0 1px 3px rgba(0,0,0,0.2));
+        opacity:.6;
+        &:hover { opacity:.9; }
+    }
+    .en { background-position:0  0px; }
+    .br { background-position:0 -16px; }
+}
+
 .header {
     width:100%;
     padding:@headerpad 0;

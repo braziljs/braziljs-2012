@@ -1,5 +1,6 @@
 ---
 category: speakers
+published: false
 
 title: Renato Mangini
 subtitle: Google
