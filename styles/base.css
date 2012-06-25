@@ -886,6 +886,10 @@ h5 {
     display: none;
   }
 }
+.registration p {
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
 .registration .prices {
   font: 36px/1.2 "League Gothic", sans-serif;
   color: #3d524e;
