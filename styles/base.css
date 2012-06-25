@@ -870,6 +870,16 @@ h5 {
     text-align: center;
   }
 }
+.share {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+.share li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
 .registration:before {
   content: ' ';
   display: block;
@@ -896,6 +906,9 @@ h5 {
 }
 .registration .prices strong {
   font-weight: 400;
+}
+.speakers {
+  margin-top: 20px !important;
 }
 .speakers ul {
   margin: 40px 0 20px;
