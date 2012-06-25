@@ -1,72 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8" />
-	<meta property="og:title" content="BrazilJS" />
-    <meta property="og:description" content="BrazilJS 2012 - Porto Alegre. A maior conferência de Javascript do universo!" />
-    <meta property="og:image" content="http://braziljs.com.br/images/braziljs_thumb_200.jpg" />
-    <meta property="og:url" content="http://braziljs.com.br/" />
-    <meta name="description" content="BrazilJS 2012 - Porto Alegre. A maior conferência de Javascript do universo!" />
-    <meta name="keywords" content="braziljs javascript conferencia porto alegre palestras front-end client-side evento js programacao coffeescript node.js node web standards webdev webdesign" />
-	<title>BrazilJS - Porto Alegre 2012</title>
-	<script>document.getElementsByTagName('html')[0].className+=' js'</script>
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-	<link rel="stylesheet" href="styles/soon.css" />
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-32119524-1']);
-	  _gaq.push(['_setDomainName', 'braziljs.com.br']);
-	  _gaq.push(['_trackPageview']);
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
-</head>
-<body>
+---
+layout: default
+title: BrazilJS - Porto Alegre 2012
+---
 
-	<header class="header">
-		<h1><img src="images/braziljs-logo.png" alt="BrazilJS" /></h1>
-		<h2>Porto Alegre <b>2012</b></h2>
-	</header>
+<section class="speakers" id="speakers">
+    <h2>Palestrantes</h2>
+    <ul>
+    {% for speaker in site.categories.speakers %}
+        <li><article>
+            <hgroup>
+                <h3 class="speaker">{{ speaker.title }}</h3>
+                <h4 class="company">{{ speaker.subtitle }}</h4>
+                <a class="more" href="/palestrantes/#{{ speaker.title | downcase | replace:' ','-' }}">+</a>
+            </hgroup>
+            <span class="photo"><img src="{{ speaker.image }}" /></span>
+        </article></li>
+    {% endfor %}
+    </ul>
+</section>
 
-	<section class="text">
-		<p class="line">
-			A maior conferência<br /> 
-			de JavaScript<br /> 
-			do universo
-		</p>
-		<p class="where">
-			30 e 31 de Agosto<br /> 
-			Teatro do Bourbon Country<br /> 
-			Porto Alegre / RS
-		</p>
-		<section class="share">
-			<h2 class="vhidden">Compartilhar</h2>
-			<ul>
-				<li class="twitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-text="Eu vou no BrazilJS 2012 em Porto Alegre!" data-related="braziljs" data-dnt="true" data-lang="en">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				</li>
-				<li class="facebook">
-					<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbraziljs.com.br&amp;send=false&amp;layout=button_count&amp;width=114&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=326273014110834" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:114px; height:21px;" allowTransparency="true"></iframe>
-				</li>
-			</ul>
-		</section>
-	</section>
+<section class="registration" id="register">
+    {% include tickets.html %}
+</section>
 
-	<div class="bg">
-		<div class="porto p0"></div>
-		<div class="porto p1"></div>
-		<div class="porto p2"></div>
-		<div class="porto p3"></div>
-		<div class="porto p4"></div>
-	</div>
+<section class="program" id="program">
+    {% include program.html %}
+</section>
 
-	<script src="scripts/soon.js"></script>
-	<script src="http://api.wipmania.com/jsonp?callback=getUserLanguage"></script>
-	
-</body>
-</html>
+<section class="location" id="location">
+    {% include location.html %}
+</section>
