@@ -23,7 +23,7 @@ $('.speaker-image').forEach (svg) ->
 
     pattern = svg.getElementsByTagName('image')[0]
     href = pattern.getAttribute('xlink:href')
-    active = href.replace '.jpg', '-active.jpg'
+    active = href.replace '.jpg', '-active.jpg?jun28'
 
     svg.addEventListener 'mouseover', ->
         pattern.setAttribute 'xlink:href', active

@@ -38,7 +38,7 @@
     return;
     pattern = svg.getElementsByTagName('image')[0];
     href = pattern.getAttribute('xlink:href');
-    active = href.replace('.jpg', '-active.jpg');
+    active = href.replace('.jpg', '-active.jpg?jun28');
     svg.addEventListener('mouseover', function() {
       return pattern.setAttribute('xlink:href', active);
     });
