@@ -624,6 +624,17 @@ h1,h2,h3,h4,h5 {
         vertical-align:middle;
         margin-bottom:20px;
     }
+    @media only screen and (max-width: 900px) {
+        .mapa {
+            float:none;
+            display:block;
+            margin-bottom:20px;
+            img {
+                width: 100%;
+            }
+        }
+
+    }
 }
 
 .program-table {
@@ -662,6 +673,7 @@ h1,h2,h3,h4,h5 {
     overflow:hidden;
     section {
         max-width:940px;
+        padding:0 20px;
         margin:0 auto;
     }
     h2 {
@@ -695,8 +707,8 @@ h1,h2,h3,h4,h5 {
         }
     }
     .credits {
-        max-width:980px;
-        padding:20px 0 40px;
+        height:60px;
+        padding:0;
         margin:20px auto 0;
         border-top:2px dotted darken(@offwhite, 75);
         position:relative;
