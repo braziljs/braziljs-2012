@@ -119,7 +119,9 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 .program-table .highlight td{background:rgba(197, 241, 127, 0.25);}
 #footer{padding:40px 0 0;margin-top:80px;background:#324340;text-align:center;position:relative;overflow:hidden;}#footer section{max-width:940px;margin:0 auto;}
 #footer h2{color:#e6fffd;font-size:48px;text-shadow:2px 2px 0px #00766c;text-align:left;}
-#footer .sponsors h2{margin-bottom:40px;}
+#footer h3{color:#e6fffd;font-size:40px;text-align:left;}
+#footer .sponsors h2{margin-bottom:30px;}
+#footer .sponsors h3{margin-bottom:20px;}
 #footer .sponsors ul{border-bottom:1px dotted #00665e;margin-bottom:40px;}
 #footer .sponsors ul:last-child,#footer .sponsors ul:last-of-type{border:0;}
 #footer .sponsors li{display:inline-block;vertical-align:middle;margin:10px;}
