@@ -141,4 +141,4 @@ External links
 $('a[rel=external]').forEach (a) ->
     a.addEventListener 'click', (e) ->
         e.preventDefault()
-        window.open e.target.href
+        window.open e.target.href || e.target.parentNode.href

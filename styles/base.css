@@ -126,6 +126,8 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 #footer .sponsors ul{border-bottom:1px dotted #00665e;margin-bottom:40px;}
 #footer .sponsors ul:last-child,#footer .sponsors ul:last-of-type{border:0;}
 #footer .sponsors li{display:inline-block;vertical-align:middle;margin:10px;}
+#footer .sponsors a:hover img{opacity:0.8;filter:"alpha(opacity=80)";-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";}
 #footer .credits{height:60px;padding:0;margin:20px auto 0;border-top:2px dotted #00665e;position:relative;}#footer .credits a.altos-eventos{display:block;font:0/0 a;text-shadow:none;color:transparent;background-color:transparent;width:138px;height:20px;background:url(/images/altos-eventos.png) no-repeat 0 0;margin-top:20px;}
 #footer .credits a.grifo{position:absolute;bottom:-10px;right:0;display:block;font:0/0 a;text-shadow:none;color:transparent;background-color:transparent;width:80px;height:90px;background:url(/images/tag-grifo.png) no-repeat 0 0;-webkit-transition:all 0.2s;-moz-transition:all 0.2s;-o-transition:all 0.2s;transition:all 0.2s;cursor:pointer;}#footer .credits a.grifo:hover{bottom:-2px;-webkit-transform:rotate(-2deg);-moz-transform:rotate(-2deg);-ms-transform:rotate(-2deg);-o-transform:rotate(-2deg);transform:rotate(-2deg);}
 #footer .credits:after{display:block;content:'Desenvolvido por';position:absolute;bottom:20px;right:90px;font-size:14px;color:#1affed;}
+html[lang=en] #footer .credits:after{content:'Developed by';}

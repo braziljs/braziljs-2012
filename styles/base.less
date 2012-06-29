@@ -705,6 +705,9 @@ h1,h2,h3,h4,h5 {
             vertical-align:middle;
             margin:10px;
         }
+        a:hover img {
+            .opacity(.8);
+        }
     }
     .credits {
         height:60px;
@@ -738,4 +741,7 @@ h1,h2,h3,h4,h5 {
             color:darken(@offwhite, 40);
         }
     }
+}
+html[lang=en] #footer .credits:after {
+    content:'Developed by';
 }
