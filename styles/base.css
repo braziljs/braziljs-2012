@@ -124,7 +124,7 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 #footer .sponsors h2{margin-bottom:30px;}
 #footer .sponsors h3{margin-bottom:20px;}
 #footer .sponsors ul{border-bottom:1px dotted #00665e;margin-bottom:40px;}
-#footer .sponsors ul:last-child,#footer .sponsors ul:last-of-type{border:0;}
+#footer .sponsors ul.bronze{border:0;}
 #footer .sponsors li{display:inline-block;vertical-align:middle;margin:10px;}
 #footer .sponsors a:hover img{opacity:0.8;filter:"alpha(opacity=80)";-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";}
 #footer .credits{height:60px;padding:0;margin:20px auto 0;border-top:2px dotted #00665e;position:relative;}#footer .credits a.altos-eventos{display:block;font:0/0 a;text-shadow:none;color:transparent;background-color:transparent;width:138px;height:20px;background:url(/images/altos-eventos.png) no-repeat 0 0;margin-top:20px;}
