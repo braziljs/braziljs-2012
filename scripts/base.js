@@ -38,6 +38,7 @@
   e assim as imagens ficam muito mais leves
   */
 
+  var hashcode = '11jul-';
 
   createCanvas = function(w, h) {
     var canvas;
@@ -75,9 +76,9 @@
     canvas2.className = 'active';
     image.parentNode.appendChild(canvas2);
     image.parentNode.removeChild(image);
-    localStorage[image.src] = canvas1.toDataURL();
-    localStorage[image.src + ':hover'] = canvas2.toDataURL();
-    return console.log(localStorage[image.src + ':hover'] != null);
+    localStorage[hashcode + image.src] = canvas1.toDataURL();
+    localStorage[hashcode + image.src + ':hover'] = canvas2.toDataURL();
+    return console.log(localStorage[hashcode + image.src + ':hover'] != null);
   };
 
   if (document.createElement('canvas').getContext != null) {
@@ -86,11 +87,11 @@
       image.className = 'preparing';
       source = image.src;
       try {
-        if (cached = localStorage[source]) {
+        if (cached = localStorage[hashcode + source]) {
           image.src = cached;
           image.className = 'gen';
           active = new Image;
-          active.src = localStorage[source + ':hover'];
+          active.src = localStorage[hashcode + source + ':hover'];
           active.className = 'active';
           return image.parentNode.appendChild(active);
         } else {
