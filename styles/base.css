@@ -86,12 +86,12 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 .registration .prices{font:36px/1.2 "League Gothic",sans-serif;color:#3d524e;}.registration .prices strong{font-weight:400;}
 .speakers{margin-top:20px !important;}.speakers ul{margin:40px 0 20px;}
 .speakers li{display:inline-block;vertical-align:top;_float:left;position:relative;min-height:160px;padding:20px 20px 20px 140px;width:50%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;margin-right:-4px;}@media only screen and (max-width:600px){.speakers li{width:auto;}}.speakers li:active .photo .active,.speakers li:target .photo .active{opacity:1;}
-.speakers article{overflow:hidden;}
-.speakers a{color:#324340;display:block;}
+.speakers article{overflow:hidden;}.speakers article>a{color:#324340;display:block;}
 .speakers .speaker{font-size:36px;line-height:1;}
 .speakers .company{font-size:24px;color:#aad142;line-height:1;display:inline-block;*display:inline;*zoom:1;}
 .speakers .photo{float:left;width:120px;height:120px;overflow:hidden;position:absolute;left:0;top:0;}.speakers .photo img,.speakers .photo canvas{position:absolute;top:0;}
 .speakers .photo .active{opacity:0;z-index:3;-webkit-transition:opacity 0.6s ease-out;-moz-transition:opacity 0.6s ease-out;-o-transition:opacity 0.6s ease-out;transition:opacity 0.6s ease-out;}
+.speakers .photo .preparing{top:-9999px;}
 .speakers .photo:hover .active{opacity:1;}
 .speakers .more{display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin:4px 2px;}
 .speakers p{font-size:14px;margin-top:10px;padding:0 10px 10px 0;}

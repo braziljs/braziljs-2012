@@ -466,10 +466,10 @@ h1,h2,h3,h4,h5 {
     }
     article {
         overflow: hidden;
-    }
-    a {
-        color:@dark;
-        display:block;
+        > a {
+            color:@dark;
+            display:block;
+        }
     }
     .speaker {
         font-size:36px;
@@ -497,6 +497,9 @@ h1,h2,h3,h4,h5 {
             opacity:0;
             z-index:3;
             .transition(opacity .6s ease-out);
+        }
+        .preparing {
+            top:-9999px;
         }
         &:hover .active {
             opacity:1;

@@ -38,7 +38,7 @@
   e assim as imagens ficam muito mais leves
   */
 
-  var hashcode = '11jul-';
+  var hashcode = 'v4-';
 
   createCanvas = function(w, h) {
     var canvas;
@@ -54,25 +54,25 @@
     return ctx.closePath();
   };
 
-  stamp = function(image, x, y) {
+  stamp = function(image, size, x, y) {
     var canvas, ctx;
-    canvas = createCanvas(image.width, image.width);
+    canvas = createCanvas(size, size);
     ctx = canvas.getContext('2d');
     ctx.fillStyle = ctx.createPattern(image, 'no-repeat');
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(100,100,100,0.2)';
-    circle(ctx, image.width / 2, image.width / 2, image.width / 2);
+    circle(ctx, size / 2, size / 2, size / 2);
     ctx.translate(x, y);
     ctx.fill();
     ctx.stroke();
     return canvas;
   };
 
-  pokeHoles = function(image) {
+  pokeHoles = function(image, size) {
     var canvas1, canvas2;
-    canvas1 = stamp(image, 0, 0);
+    canvas1 = stamp(image, size, 0, 0);
     image.parentNode.appendChild(canvas1);
-    canvas2 = stamp(image, 0, -image.width);
+    canvas2 = stamp(image, size, 0, -size);
     canvas2.className = 'active';
     image.parentNode.appendChild(canvas2);
     image.parentNode.removeChild(image);
@@ -97,7 +97,7 @@
         } else {
           img = new Image;
           img.onload = function() {
-            return pokeHoles(image);
+            return pokeHoles(image, img.width);
           };
           return img.src = image.src;
         }
