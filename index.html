@@ -8,12 +8,17 @@ title: BrazilJS - Porto Alegre 2012
     <ul>
     {% for speaker in site.categories.speakers %}
         <li><article>
-            <hgroup>
-                <h3 class="speaker">{{ speaker.title }}</h3>
-                <h4 class="company">{{ speaker.subtitle }}</h4>
-                <a class="more" href="/palestrantes/#{{ speaker.title | downcase | replace:' ','-' }}">+</a>
-            </hgroup>
-            <span class="photo"><img src="{{ speaker.image }}" /></span>
+            <a href="/palestrantes/#{{ speaker.title | downcase | replace:' ', '-' | replace:'.', '' }}">
+                <hgroup>
+                    <h3 class="speaker">{{ speaker.title }}</h3>
+                    <h4 class="company">{{ speaker.subtitle }}</h4>
+                    <span class="more">+</span>
+                </hgroup>
+                <span class="photo"><img src="{{ speaker.image }}" /></span>
+                {% if speaker.sinopse %}
+                <span class="sinopse">{{ speaker.sinopse }}</span>
+                {% endif %}
+            </a>
         </article></li>
     {% endfor %}
     </ul>

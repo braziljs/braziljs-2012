@@ -7,7 +7,7 @@ title: Palestrantes | BrazilJS - Porto Alegre 2012
     <h2>Palestrantes</h2>
     <ul>
     {% for speaker in site.categories.speakers %}
-        <li id="{{ speaker.title | downcase | replace:' ','-' }}"><article>
+        <li id="{{ speaker.title | downcase | replace:' ', '-' | replace:'.', '' }}"><article>
             <hgroup>
                 <h3 class="speaker">{{ speaker.title }}</h3>
                 <h4 class="company">{{ speaker.subtitle }}</h2>

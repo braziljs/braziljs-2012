@@ -33,20 +33,6 @@
     });
   }
 
-  $('.speaker-image').forEach(function(svg) {
-    var active, href, pattern;
-    return;
-    pattern = svg.getElementsByTagName('image')[0];
-    href = pattern.getAttribute('xlink:href');
-    active = href.replace('.jpg', '-active.jpg?jun28');
-    svg.addEventListener('mouseover', function() {
-      return pattern.setAttribute('xlink:href', active);
-    });
-    return svg.addEventListener('mouseout', function() {
-      return pattern.setAttribute('xlink:href', href);
-    });
-  });
-
   /*
   Faz buracos nas fotos dos palestrantes. PNG é para os fracos,
   e assim as imagens ficam muito mais leves
@@ -69,12 +55,12 @@
 
   stamp = function(image, x, y) {
     var canvas, ctx;
-    canvas = createCanvas(120, 120);
+    canvas = createCanvas(image.width, image.width);
     ctx = canvas.getContext('2d');
     ctx.fillStyle = ctx.createPattern(image, 'no-repeat');
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(100,100,100,0.2)';
-    circle(ctx, 60, 60, 60);
+    circle(ctx, image.width / 2, image.width / 2, image.width / 2);
     ctx.translate(x, y);
     ctx.fill();
     ctx.stroke();
@@ -85,7 +71,7 @@
     var canvas1, canvas2;
     canvas1 = stamp(image, 0, 0);
     image.parentNode.appendChild(canvas1);
-    canvas2 = stamp(image, 0, -120);
+    canvas2 = stamp(image, 0, -image.width);
     canvas2.className = 'active';
     image.parentNode.appendChild(canvas2);
     image.parentNode.removeChild(image);
