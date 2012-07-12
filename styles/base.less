@@ -452,7 +452,6 @@ h1,h2,h3,h4,h5 {
         vertical-align:top;
         _float:left;
         position:relative;
-        min-height:160px;
         padding:20px 20px 20px 140px;
         width:50%;
         .box-sizing(border-box);
@@ -465,6 +464,7 @@ h1,h2,h3,h4,h5 {
         }
     }
     article {
+        min-height:120px;
         overflow: hidden;
         > a {
             color:@dark;
@@ -532,7 +532,6 @@ h1,h2,h3,h4,h5 {
     @media only screen and (min-width: 601px) {
         li:first-child {
             padding:80px 20px;
-            min-height:240px;
             display:block;
             width:100%;
             .photo {
@@ -541,6 +540,9 @@ h1,h2,h3,h4,h5 {
                 left:50%;
                 right:auto;
                 margin-left:-90px;
+            }
+            article {
+                min-height:100px;
             }
             hgroup, .sinopse, p {
                 width:50%;
@@ -641,7 +643,9 @@ h1,h2,h3,h4,h5 {
         li {
             display:block;
             padding:15px 10px 15px 70px;
-            min-height:60px;
+            article {
+                min-height:30px;
+            }
             .photo {
                 left:0;
                 right:auto;
@@ -717,37 +721,29 @@ h1,h2,h3,h4,h5 {
 }
 
 #footer {
-    padding:40px 0 0;
+    @color:#ADB4B3;
+    padding:0 20px;
     margin-top:80px;
-    //@from: rgba(50,60,60,0.05);
-    //@to: rgba(50,60,60,0.4);
-    //.linear-gradient(@from, @to);
     background:@dark;
-    //border-bottom:10px solid #557777;
     position:relative;
     overflow:hidden;
     section {
+        padding-top:40px;
         max-width:940px;
-        padding:0 20px;
         margin:0 auto;
     }
     h2 {
-        color:#ADB4B3;
+        margin-bottom:30px;
+        color:@color;
         font-size:48px;
         text-shadow:2px 2px 0px darken(@offwhite, 72);
     }
     h3 {
-        color:darken(#ADB4B3, 10);
-        font-size:36px;
+        color:darken(@color, 5);
+        font-size:32px;
         text-shadow:2px 2px 0px darken(@offwhite, 76);
     }
     .sponsors {
-        h2 {
-            margin-bottom:30px;
-        }
-        h3 {
-            //margin-bottom:20px;
-        }
         ul {
             border-bottom:1px dotted darken(@offwhite, 75);
             margin-bottom:40px;
@@ -763,15 +759,63 @@ h1,h2,h3,h4,h5 {
             .opacity(.8);
         }
     }
+    .curators {
+        border-top:2px dotted darken(@offwhite, 75);
+        li {
+            .box-sizing(border-box);
+            width:33%;
+            margin-bottom:40px;
+            padding:0 20px 0 80px;
+            display:inline-block;
+            vertical-align:top;
+            position:relative;
+            color:lighten(@color, 15);
+            font-size:14px;
+        }
+        @media only screen and (max-width: 768px) {
+            li {
+                display:block;
+                width:100%;
+            }
+        }
+        img {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .more {
+            display:inline-block;
+            vertical-align:top;
+            margin:2px 0 10px 6px;
+        }
+        a {
+            color:lighten(@blue, 10);
+            &:hover {
+                color:lighten(@blue, 20);
+            }
+            &:visited {
+                color:@blue;
+            }
+        }
+    }
     .credits {
+        color:@color;
+        font-size:14px;
         height:60px;
         padding:0;
-        margin:20px auto 0;
         border-top:2px dotted darken(@offwhite, 75);
         position:relative;
+        p {
+            color:darken(@offwhite, 40);
+            display:inline-block;
+            vertical-align:middle;
+            line-height:60px;
+        }
         a.altos-eventos {
             .IR(138px, 20px, url(/images/altos-eventos.png));
-            margin-top: 20px;
+            margin:-6px 0 0 10px;
+            display:inline-block;
+            vertical-align:middle;
         }
         a.grifo {
             position:absolute;
@@ -791,7 +835,6 @@ h1,h2,h3,h4,h5 {
             position:absolute;
             bottom:20px;
             right:90px;
-            font-size:14px;
             color:darken(@offwhite, 40);
         }
     }
