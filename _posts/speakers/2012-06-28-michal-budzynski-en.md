@@ -2,7 +2,7 @@
 category: speakers-en
 
 title: Michal Budzynski
-subtitle: onGameStart / AntarticJS
+subtitle: Mozilla
 image: /images/speakers/michal-budzynski.jpg
 ---
 Michal is an Open Web Alchemist from Warsaw, Poland, responsible for many ridiculous experiments like [CSS Nyan Cat](https://developer.mozilla.org/pl/demos/detail/css-nyan-cat) or [All your gradient are belong to us](https://demoparty.mozillalabs.com/gallery/43/al-your-gradient-are-belong-to-us).

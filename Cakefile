@@ -18,7 +18,7 @@ compileCoffee = (file) ->
         console.log "Compiled #{file}"
 
 compileLess = (file) ->
-    exec "lessc #{file} #{file.replace('.less', '.css')}", (err, stdout, stderr) ->
+    exec "lessc #{file} --compress #{file.replace('.less', '.css')}", (err, stdout, stderr) ->
         return console.error err if err
         console.log "Compiled #{file}"
 
