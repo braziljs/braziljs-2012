@@ -699,24 +699,61 @@ h1,h2,h3,h4,h5 {
 
 .program-table {
     margin-top:20px;
+
+    h3 {
+        margin-bottom: 20px;
+    }
+    .program-1 table {
+        margin-right: 20px;
+        tbody tr:nth-child(2n+1) {
+            background:rgba(90,90,90,0.03);
+        }
+    }
+    .program-2 {
+        h3 {
+            margin-left: 20px;
+        }
+        table {
+            margin-left: 20px;
+            tbody tr:nth-child(2n) {
+                background:rgba(90,90,90,0.03);
+            }
+        }
+    }
+
     thead th {
-        font: 28px/1.2 @titles;
+        /*font: 28px/1.2 @titles;
         text-transform:uppercase;
         text-align:left;
-        background:transparent;
+        background:transparent;*/
+        .vhidden();
+    }
+    tr:first-child td, tr:first-child th {
+        border-top:1px dotted darken(@offwhite, 55);
     }
     th, td {
         padding:10px;
         border-bottom:1px dotted darken(@offwhite, 55);
     }
-    &.program-1 tbody tr:nth-child(2n+1) { background:rgba(90,90,90,0.03); }
-    &.program-2 tbody tr:nth-child(2n) { background:rgba(90,90,90,0.03); }
     tbody th {
-        border-right:1px solid darken(@offwhite, 6);
+        border-right:1px solid darken(@offwhite, 55);
     }
     .highlight {
         th { background:fade(@lightgreen, 50%); }
         td { background:fade(@lightgreen, 25%); } 
+    }
+    td {
+        a {
+            font-weight:bold;
+        }
+        strong {
+            display:block;
+            margin-bottom:10px;
+        }
+        p {
+            font-size: 85%;
+            margin-bottom: 8px;
+        }
     }
 }
 
