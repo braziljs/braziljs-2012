@@ -128,9 +128,9 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 #footer h3{color:#a0a8a7;font-size:32px;text-shadow:2px 2px 0px #00615a;}
 #footer .sponsors ul{border-bottom:1px dotted #00665e;margin-bottom:40px;padding-bottom:20px;}
 #footer .sponsors ul.supporters{border:0;}
-#footer .sponsors li{display:inline-block;vertical-align:middle;margin:10px;}
+#footer .sponsors li{display:inline-block;vertical-align:middle;margin:30px 50px 30px 0;}
 #footer .sponsors a:hover img{opacity:0.8;filter:"alpha(opacity=80)";-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";}
-#footer .curators{border-top:2px dotted #00665e;}#footer .curators li{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;width:32%;margin-bottom:40px;padding:0 20px 0 80px;display:inline-block;vertical-align:top;position:relative;color:#d5d9d8;font-size:14px;}
+#footer .curators{margin-top:-20px;border-top:2px dotted #00665e;}#footer .curators li{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;width:32%;margin-bottom:40px;padding:0 20px 0 80px;display:inline-block;vertical-align:top;position:relative;color:#d5d9d8;font-size:14px;}
 @media only screen and (max-width:768px){#footer .curators li{display:block;width:100%;}}#footer .curators img{position:absolute;top:0;left:0;}
 #footer .curators .more{display:inline-block;vertical-align:top;margin:2px 0 10px 6px;}
 #footer .curators a{color:#33adff;}#footer .curators a:hover{color:#66c2ff;}
