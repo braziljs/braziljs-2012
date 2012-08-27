@@ -675,6 +675,29 @@ h1,h2,h3,h4,h5 {
     }
 }
 
+.contact {
+    hgroup {
+        float:left;
+        p {
+            text-transform:uppercase;
+            font:24px/1.2 @titles;
+            color:@textgreen;
+            margin-top:-8px;
+        }
+    }
+    .phone {
+        font:36px/1.2 @titles;
+        margin:10px 0 0 30px;
+        float:left;
+    }
+    @media only screen and (max-width: 900px) { 
+        .block {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    }
+}
+
 .location {
     .mapa {
         float:right;

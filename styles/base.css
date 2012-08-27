@@ -52,7 +52,8 @@ td{vertical-align:top;}
 .clearfix:before,.clearfix:after{content:"";display:table;}
 .clearfix:after{clear:both;}
 .clearfix{*zoom:1;}
-@media print{*{background:transparent !important;color:black !important;box-shadow:none !important;text-shadow:none !important;} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} abbr[title]:after{content:" (" attr(title) ")";} .ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} pre,blockquote{border:1px solid #999;page-break-inside:avoid;} thead{display:table-header-group;} tr,img{page-break-inside:avoid;} img{max-width:100% !important;} @page {margin:0.5cm;}p,h2,h3{orphans:3;widows:3;} h2,h3{page-break-after:avoid;}}.button{background:#aad142;font:400 28px/1 "League Gothic",sans-serif;color:#fff;text-shadow:-1px -1px rgba(0, 0, 0, 0.5);text-align:center;display:inline-block;*display:inline;*zoom:1;padding:0 30px;height:42px;line-height:42px;border:4px solid #97be2e;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box;-webkit-box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);-moz-box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);margin:20px 0;}.button:hover{color:#fff;background:#b1d552;}.button:visited{color:#fff;}
+@media print{*{background:transparent !important;color:black !important;box-shadow:none !important;text-shadow:none !important;} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} abbr[title]:after{content:" (" attr(title) ")";} .ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} pre,blockquote{border:1px solid #999;page-break-inside:avoid;} thead{display:table-header-group;} tr,img{page-break-inside:avoid;} img{max-width:100% !important;} @page {margin:0.5cm;}p,h2,h3{orphans:3;widows:3;} h2,h3{page-break-after:avoid;}}.button{background:#aad142;font:400 28px/1 "League Gothic",sans-serif;color:#fff;text-shadow:-1px -1px rgba(0, 0, 0, 0.5);text-align:center;display:inline-block;*display:inline;*zoom:1;padding:0 30px;height:42px;line-height:42px;border:4px solid #97be2e;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box;-webkit-box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);-moz-box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);box-shadow:inset 0 -4px 20px rgba(0, 20, 0, 0.1),0px 3px 8px rgba(0, 0, 0, 0.15);margin:20px 0;}.button:hover{color:#fff;background:#b1d552;}
+.button:visited{color:#fff;}
 @font-face{font-family:'League Gothic';src:url('../fonts/League_Gothic-webfont.eot');src:url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/League_Gothic-webfont.woff') format('woff'),url('../fonts/League_Gothic-webfont.ttf') format('truetype');font-weight:normal;font-style:normal;}html,body{min-height:100%;}
 html{height:100%;background:url(../images/bg-lines.png);}
 #wrapper{max-width:940px;padding:0 20px;margin:0 auto;color:#324340;}
@@ -106,10 +107,15 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 .about .curators strong{line-height:16px;}
 .about .curators .more{display:inline-block;margin:0 0 0 6px;}
 .about .curators p{margin:10px 0;max-width:580px;}
-@media only screen and (max-width:600px){#wrapper .speakers li{display:block;padding:15px 10px 15px 70px;}#wrapper .speakers li article{min-height:30px;} #wrapper .speakers li .photo{left:0;right:auto;} #wrapper .speakers li hgroup{text-align:left;} #wrapper .speakers li .sinopse{display:none;} #wrapper .speakers .speaker{font-size:32px;} #wrapper .speakers .company{font-size:22px;} #wrapper .speakers .photo{width:60px;height:60px;}#wrapper .speakers .photo img,#wrapper .speakers .photo canvas{width:60px;} #wrapper .speakers article:active img{top:-60px;}}.location .mapa{float:right;margin-right:20px;}
+@media only screen and (max-width:600px){#wrapper .speakers li{display:block;padding:15px 10px 15px 70px;}#wrapper .speakers li article{min-height:30px;} #wrapper .speakers li .photo{left:0;right:auto;} #wrapper .speakers li hgroup{text-align:left;} #wrapper .speakers li .sinopse{display:none;} #wrapper .speakers .speaker{font-size:32px;} #wrapper .speakers .company{font-size:22px;} #wrapper .speakers .photo{width:60px;height:60px;}#wrapper .speakers .photo img,#wrapper .speakers .photo canvas{width:60px;} #wrapper .speakers article:active img{top:-60px;}}.contact hgroup{float:left;}.contact hgroup p{text-transform:uppercase;font:24px/1.2 "League Gothic",sans-serif;color:#aad142;margin-top:-8px;}
+.contact .phone{font:36px/1.2 "League Gothic",sans-serif;margin:10px 0 0 30px;float:left;}
+@media only screen and (max-width:900px){.contact .block{width:100%;padding-bottom:20px;}}
+.location .mapa{float:right;margin-right:20px;}
 .location h3{margin:30px 0 10px 0;}
 .location p{vertical-align:middle;margin-bottom:20px;}
 @media only screen and (max-width:900px){.location .mapa{float:none;display:block;margin-bottom:20px;}.location .mapa img{width:100%;}}
+.hackday img{float:left;margin:0 20px 20px 0;}
+.hackday:before{content:' ';display:block;background:rgba(90, 90, 90, 0.05);position:absolute;right:0;left:0;height:300px;z-index:-1;margin-top:-20px;}@media only screen and (max-width:600px){.hackday:before{display:none;}}
 .program-table{margin-top:20px;}.program-table h3{margin-bottom:20px;}
 .program-table .program-1 table{margin-right:20px;}.program-table .program-1 table tbody tr:nth-child(2n+1){background:rgba(90, 90, 90, 0.03);}
 .program-table .program-2 h3{margin-left:20px;}
@@ -123,9 +129,6 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 .program-table td a{font-weight:bold;}
 .program-table td strong{display:block;margin-bottom:10px;}
 .program-table td p{font-size:85%;margin-bottom:8px;}
-.hackday img{float:left;margin:0 20px 20px 0;}
-.hackday::before{content: ' ';display: block;background:rgba(90, 90, 90, 0.05);position:absolute;right:0;left:0;height:300px;z-index:-1;margin-top: -20px;}
-@media only screen and (max-width:600px){.hackday::before{display:none;}}
 #footer{padding:0 20px;margin-top:80px;background:#324340;position:relative;overflow:hidden;}#footer section{padding-top:40px;max-width:940px;margin:0 auto;}
 #footer h2{margin-bottom:30px;color:#adb4b3;font-size:48px;text-shadow:2px 2px 0px #00766c;}
 #footer h3{color:#a0a8a7;font-size:32px;text-shadow:2px 2px 0px #00615a;}
