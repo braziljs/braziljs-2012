@@ -445,8 +445,26 @@ h1,h2,h3,h4,h5 {
     }
 }
 
-.speakers {
+.broadcast {
     margin-top:20px !important;
+    &:before {
+        content:' ';
+        display:block;
+        background:rgba(90,90,90,0.05);
+        position:absolute;
+        right:0;
+        left:0;
+        height:176px;
+        z-index:-1;
+        margin-top:-20px;
+        @media only screen and (max-width:600px){
+            display:none;
+        }
+    }
+}
+
+.speakers {
+    /*margin-top:20px !important;*/
     ul {
         margin:40px 0 20px;
     }

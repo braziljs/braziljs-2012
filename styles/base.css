@@ -85,7 +85,8 @@ h1,h2,h3,h4,h5{font-family:"League Gothic",sans-serif;font-weight:400;text-trans
 .registration:before{content:' ';display:block;background:rgba(90, 90, 90, 0.05);position:absolute;right:0;left:0;height:300px;z-index:-1;margin-top:-20px;}@media only screen and (max-width:600px){.registration:before{display:none;}}
 .registration p{padding-right:20px;margin-bottom:10px;}
 .registration .prices{font:36px/1.2 "League Gothic",sans-serif;color:#3d524e;}.registration .prices strong{font-weight:400;}
-.speakers{margin-top:20px !important;}.speakers ul{margin:40px 0 20px;}
+.broadcast{margin-top:20px !important;}.broadcast:before{content:' ';display:block;background:rgba(90, 90, 90, 0.05);position:absolute;right:0;left:0;height:176px;z-index:-1;margin-top:-20px;}@media only screen and (max-width:600px){.broadcast:before{display:none;}}
+.speakers{}.speakers ul{margin:40px 0 20px;}
 .speakers li{display:inline-block;vertical-align:top;_float:left;position:relative;padding:20px 20px 20px 140px;width:50%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;margin-right:-4px;}@media only screen and (max-width:600px){.speakers li{width:auto;}}.speakers li:active .photo .active,.speakers li:target .photo .active{opacity:1;}
 .speakers article{min-height:120px;overflow:hidden;}.speakers article>a{color:#324340;display:block;}
 .speakers .speaker{font-size:36px;line-height:1;}
