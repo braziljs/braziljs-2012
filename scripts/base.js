@@ -192,3 +192,10 @@
   });
 
 }).call(this);
+
+/* fit vids */
+$('#live').fitVids({
+  customSelector: 'iframe'
+});
+
+
